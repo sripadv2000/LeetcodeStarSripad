@@ -1,0 +1,57 @@
+1)  Sort an array of 0’s 1’s 2’s without using extra space or sorting algo
+   P: https://leetcode.com/problems/sort-colors/
+   Sol: 
+i) By sorting the array. TC: O(NlogN); SC: O(1)
+ii) By using counting sort; 3 variables; Count no. of zeros, ones and twos; 
+    Again traverse and fill the array with 0s,1s and 2s.
+	TC: O(N)+O(N); SC: O(1)
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        n1=0
+        n2=0
+        n0=0
+        for i in nums:
+            if(i==0):
+                n0+=1
+            elif(i==1):
+                n1+=1
+            else:
+                n2+=1
+        nums[:]= n0*[0] + n1*[1] + n2*[2]
+iii) This problem is a variation of Dutch National Flag Algorithm. TC: O(N) ; SC: O(1)
+	Consider 3 pointers: low, mid, high;
+	Initially, low and mid pointers are placed at the start and the high pointer at the last position of the array.
+	This algo is based on the fact that:
+	->all elements from [0 .... low-1] are 0s.
+	->all elements from [high+1 .... n] are 2s.
+i.e. all elements to the left of low are 0s and all elements to the right of high are 2s.
+Move the mid pointer unless and until it crosses the high pointer.
+while(mid<=high)
+We have 3 checks; when mid is pointing to 0; when mid is pointing to 1; when mid is pointing to 2.
+ when mid is pointing to 0:
+	swap(ar[low],ar[mid])
+	low++; mid++;
+ when mid is pointing to 1:
+	mid++;
+ when mid is pointing to 2:
+	swap(ar[mid],ar[high])
+	high--;
+Code:
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        low=0
+        mid=0
+        high=len(nums)-1
+        while(mid<=high):
+            if(nums[mid]==0):
+                nums[low],nums[mid]= nums[mid],nums[low]
+                low+=1
+                mid+=1
+            elif(nums[mid]==1):
+                mid+=1
+            elif(nums[mid]==2):
+                nums[high],nums[mid]= nums[mid],nums[high]
+                high-=1
+        """
+        Do not return anything, modify nums in-place instead.
+        """   
