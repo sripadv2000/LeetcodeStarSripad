@@ -1,0 +1,56 @@
+4) Find the Duplicate Number.
+   P: https://leetcode.com/problems/find-the-duplicate-number/
+	Method-1: (Use Sorting) TC: O(nlogn)+O(n); SC: O(1)
+	a) Sort the input array.
+	b) Traverse the array and check repeating number.
+	If any adjacent numbers are repeating, then that number is repeating number.
+	But this method distorts the given array.
+Code:
+class Solution:
+    def findDuplicate(self, nums):
+        nums.sort()
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i-1]:
+                return nums[i]
+
+	Method-2: Using a count array or a map. O(n); SC: O(n)
+	So if count array count of an element is 2 or in case of map, if element already present in map, return the element.
+Code:
+class Solution:
+    def findDuplicate(self, nums):
+        seen = set()
+        for num in nums:
+            if num in seen:
+                return num
+            seen.add(num)
+
+	Method-3: Most optimal approach uses the Linked List Cycle Method. O(n); SC: O(1)
+	We plot the Linked List with the array elements starting from the first. then we go to the index present in the first element and so on.
+	Repeat the process. Linked List with a cycle is formed.
+	Start slow and fast pointers from starting element. Slow pointer moves by one step. Fast pointer moves by two steps.
+	At one point in the LL, the slow and fast pointers collide. We stop moving the pointers.
+	Now we place the Fast pointer at the start.  
+	We no longer follow the tortoise method.
+	Now we just move the slow and fast pointers by one step till they meet.
+	They both collide at the duplicate element.
+	They always collide because since there is a duplicate element, there is always a cycle formed.
+	And slow moves by 1 and fast moves by 2 so they will always collide. So first collision is proved.
+	We can prove 2nd collision using equations.
+Code:
+class Solution:
+    def findDuplicate(self, nums):
+        # Find the intersection point of the two runners.
+        slow = fast = nums[0]
+        while True:
+            slow = nums[slow]
+            fast = nums[nums[fast]]
+            if slow == fast:
+                break
+        
+        # Find the "entrance" to the cycle.
+        slow = nums[0]
+        while slow != fast:
+            slow = nums[slow]
+            fast = nums[fast]
+        
+        return fast
