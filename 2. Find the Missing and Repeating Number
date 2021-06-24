@@ -1,0 +1,79 @@
+2) Find the repeating and the missing numbers
+   P: https://www.geeksforgeeks.org/find-a-repeating-and-a-missing-number/
+   Method-1: (Use Sorting) TC: O(nlogn)+O(n); SC: O(n)
+	a) Sort the input array.
+	b) Traverse the array and check for missing and repeating.
+	Since the array only consists of 1 to N numbers,
+	If any adjacent numbers are repeatng, then that number is repeating number; 
+	and if we do not find a consecutive number, that is missing;
+ 	
+   Method-2: (Use Hashing) TC: O(n)+O(n); SC: O(n)
+	a) Take a separate count array.
+	b) Traverse the array to find the repeated element if count is 2
+	   and missing element if count is 0; all remaining elements have count 1.
+
+   Method-3: Using Math; Calculating diff sum and diff of sum of squares. TC: O(n); SC: O(1)
+	Drawback is that, since all elements are integers the sum of squares might exceed the integer limit.
+Code:
+arr=[4,3,6,2,5,5]
+n=len(arr)
+#if x and y are missing and repeating numbers respectively
+s = n*(n+1)//2 - sum(arr) # x-y
+sqsum=0
+
+for i in arr:
+    sqsum+= (i**2) #sum of squares of elements in array
+sq = n*(n+1)*(2*n +1)//6 - sqsum # x^2 - y^2 = (x+y)*(x-y)
+sum= sq//s # x+y
+
+mis = (s+sum)//2
+rep = (sum-s)//2
+print(mis)
+print(rep)
+
+   Method-4:(Use XOR) TC: O(5*n); SC: O(1)
+	Let x and y be the desired output elements.
+	a) Calculate XOR of all the array elements. xor1 = arr[0]^arr[1]^arr[2]…..arr[n-1]
+	b) XOR the result with all numbers from 1 to n. xor1 = (xor1)^1^2^…..^n
+	   In the result xor1, all elements would nullify each other except x and y.
+	c) Take 2 buckets and segregate the elements in the array.
+	   So if we take any set bit (We have chosen the rightmost set bit in code) of xor1 
+	and divide the elements of the array in two sets–
+	one set of elements with same bit set and other set with same bit not set.
+	Repeat the same process for the elements of orginal 1 to n. Divide them into buckets.
+	By doing so, we will get x in one set and y in another set. 
+	Now if we do XOR of all the elements in first set, we will get x, and by doing same in other set we will get y. 
+This method doesn’t cause overflow, but it doesn’t tell which one occurs twice and which one is missing. 
+We can add one more step that checks which one is missing and which one is repeating. This can be easily done in O(n) time.
+TC: O(5*n)
+Step-1: XOR all a[i] ->x.....O(n)
+Step-2: x^(1^2^3........^n) ->num.....O(n)
+Step-3: x^y=num ; Find the rightmost set bit.
+Step-4: Separate in 2 baskets......O(n)
+Step-5: Separate (12...n) in 2 baskets......O(n)
+Step-6: XOR both baskets to find x and y.
+Step-7: Again traverse the array to find mis and rep numbers among x and y......O(n)
+
+    Method-5: Use Map or Dictionary.
+	This method involves creating a Hashtable with the help of Map.
+	In this, the elements are mapped to their natural index. 
+	In this process, if an element is mapped twice, then it is the repeating element. 
+	And if an element’s mapping is not there, then it is the missing element.
+Code:
+def main():
+    arr = [4, 3, 6, 2, 1, 1]
+    numberMap = {}
+    n = len(arr)
+    for i in arr:
+        if i in numberMap:
+            rep=i
+        else:
+            numberMap[i] = True
+
+    for i in range(1, n + 1):
+        if not i in numberMap:
+            mis=i
+    print(numberMap) #{4: True, 3: True, 6: True, 2: True, 1: True}
+    print(mis) #5
+    print(rep) #1
+main()
