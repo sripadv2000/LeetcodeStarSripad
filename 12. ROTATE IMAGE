@@ -1,0 +1,26 @@
+12) Rotate Image
+    P: https://leetcode.com/problems/rotate-image/
+	Method-1: It is by shifting element by element to its position.
+	Method-2: We make use of transpose. If we transpose a matrix, rows becomes columns and columns become rows.
+	After the transpose, it is just reversing the rows one by one to get the desired rotated matrix.
+  Code:
+  class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        n = len(matrix) #len(matrix) = len(matrix[0])
+        for i in range(n):
+	        for j in range(i):
+		        matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        for i in range(n):
+            matrix[i]=reversed(matrix[i])
+	Method-3: Its just reversing the matrix(last row becomes first and vice-versa) and taking transpose.
+Code:
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        n = len(matrix) #len(matrix) = len(matrix[0])
+        matrix[::] = matrix[::-1]
+        for i in range(n):
+	        for j in range(i):
+		        matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
