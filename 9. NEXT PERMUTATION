@@ -1,0 +1,33 @@
+9) NEXT PERMUTATION
+P: https://leetcode.com/problems/next-permutation/
+We can use C++'s std::next_permutation to directly find the next permutation.
+https://www.geeksforgeeks.org/stdnext_permutation-prev_permutation-c/
+
+Method-1: Find find all the permutations for the given list.
+Then find the next permutation for the given input.
+If input is last in the set of permutations, then return the first one.
+TC: O(N!*N) as generating all combos takes N!*N. 
+Because there are N! orders and N is the length of every array.
+Method-2:
+Algorithm: Consists of 4 steps. TC: O(N)+O(N)+O(N); SC: O(1).
+1) Linearly traverse from the back of the array.
+While traversing, find the first index idx1 where a[i]<a[i+1].
+2) Again traverse from the back of the array and find the index idx2 
+where a[idx2]>a[idx1]
+3) swap(a[idx1],a[idx2])
+4) reverse(idx1+1 -> last of array)
+Code:
+class Solution:
+    def nextPermutation(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        for i in range(len(nums)-1,-1,-1):        
+            if nums[i-1]<nums[i]:
+                break
+        if i!=0 :
+            for j in range(len(nums)-1,-1,-1):
+                if nums[j]>nums[i-1]:
+                    break 
+            nums[i-1],nums[j]= nums[j],nums[i-1]
+        nums[i:]=reversed(nums[i:])
