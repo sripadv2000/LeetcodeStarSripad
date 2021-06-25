@@ -1,0 +1,23 @@
+7. Set Matrix Zeroes
+   P: https://leetcode.com/problems/set-matrix-zeroes/
+	Method-1: Additional Memory Approach; TC: O(M*N + M*N); SC: O(M)+O(N)
+	In the first iteration, I have stored the row and column number of the element whose value is 0.
+	Then in furthur iteration, if a particular element's row or column is present in the row or column array,
+	set the element's value to 0.
+Code:
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        row = []
+        col = []
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if (matrix[i][j] == 0):
+                    row.append(i)
+                    col.append(j)
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if(i in row or j in col):
+                    matrix[i][j]=0
+        return matrix
+
+	Method-2: O(1) Space, Efficient Solution; TC: O(M*N); SC: O(1) 
