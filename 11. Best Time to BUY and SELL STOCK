@@ -1,0 +1,20 @@
+11) Best Time to BUY and SELL STOCK
+   P: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+   Method-1:
+	Brute-Force Approach: TC: O(n^2); SC: O(1)
+	For each item, traverse the whole right part and maintain a variable which stores the maximum difference.
+   Method-2:
+	One Pass. TC: O(n); SC: O(1)
+	Just 2 variables one for keeping track of minimum element till then and one for maximum profit.
+	Kinda Kadane Algorithm based approach.
+Code:
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        maxi=0
+        mini=prices[0]
+        for i in prices:
+            if(i<mini):
+                mini=i
+            if( i -mini > maxi):
+                maxi= i-mini
+        return maxi
