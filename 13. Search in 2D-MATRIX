@@ -1,0 +1,64 @@
+11) (2) Search in 2D-MATRIX (Discussed in SI)
+	P: https://leetcode.com/problems/search-a-2d-matrix/
+	https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
+
+Method-1: Brute Force method would be to linear search traversal the entire matrix for the target element.
+If found retuen "yes" or "no" otherwise. This method takes O(n*m)time and O(1)space.
+Method-2: Since the rows are row-wise sorted, we implement the Binary Search on every row of the matrix.
+We run Binary Search for n times for m elements. So TC: O(n*logm)
+Code:
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        for i in range(len(matrix)):
+            if(target in matrix[i]):
+                return True
+        return False
+These above methods run fine for gfg and leetcode question.
+
+If(leetcode):
+   1.Integers in each row are sorted from left to right.
+   2.The first integer of each row is greater than the last integer of the previous row.
+Then Binary Search is the best method. Directly implement Binary Search on the matrix.
+Code for Optimal Solution:
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        r = len(matrix)
+        c = len(matrix[0])
+        if(r == 0):
+            return False
+        lo = 0
+        hi = r*c -1
+        while(lo<=hi):
+            mid = lo + (hi - lo)//2
+            if(matrix[mid//c][mid%c] == target):
+                return True
+            elif(matrix[mid//c][mid%c] < target):
+                lo = mid +1
+            else:
+                hi = mid -1
+        return False
+
+If(gfg):
+   1.Integers in each row are sorted from left to right.
+   2.Integers in each column are sorted from top to bottom.
+
+	Method- Best suited for this problem(This also works good for leetcode problem.): 
+	Use staircase method. Start from top right element and search for the target. 
+	If target is less, then move left. If target is greater, then move down.
+Code:
+def search(mat, n, x):
+    i = 0
+    # set indexes for top right element
+    j = n - 1
+    while ( i < n and j >= 0 ):
+        if (mat[i][j] == x ):
+            print("n Found at ", i, ", ", j)
+            return 1
+        if (mat[i][j] > x ):
+            j -= 1
+        # if mat[i][j] < x
+        else:
+            i += 1
+     
+    print("Element not found")
+    return 0 # if (i == n || j == -1 )
