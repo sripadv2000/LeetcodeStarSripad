@@ -1,4 +1,4 @@
-12) (3) Majority Element (>N/2 times)
+15) Majority Element (>N/2 times)
 	P: https://leetcode.com/problems/majority-element/
 	Method-1: TC: O(n^2); SC: O(1); O/P: TLE
 	We can exhaust the search space in quadratic time 
