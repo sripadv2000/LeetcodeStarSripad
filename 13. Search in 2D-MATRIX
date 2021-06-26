@@ -19,6 +19,7 @@ If(leetcode):
    1.Integers in each row are sorted from left to right.
    2.The first integer of each row is greater than the last integer of the previous row.
 Then Binary Search is the best method. Directly implement Binary Search on the matrix.
+TC: O(log(m*n)); SC: O(1)
 Code for Optimal Solution:
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
