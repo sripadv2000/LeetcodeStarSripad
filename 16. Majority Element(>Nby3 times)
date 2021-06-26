@@ -1,0 +1,51 @@
+16) Majority Element (>N/3 times)
+    P: https://leetcode.com/problems/majority-element-ii/
+
+	Method-1: Brute Force: TC: O(n^2) ;SC: O(1)
+	For each element, check the count in the entire array,
+	consider it if it is a majorit element.
+
+        Method-2: TC: O(n)for freq array and O(NlogN)for hashmap; SC: O(n)
+	We know that the majority element occurs more than floor(n/3) times, 
+	and a HashMap allows us to count element occurrences efficiently.
+
+	Method-3: Boyer-Moore Voting Algorithm; O(n)+O(n); SC: O(1) 
+After implementing the Algorithm, we get num1 and num2 but we are not sure if they are the majority elements.
+Consider a case of array being [3,2,3] the O/P should be 3. If we directly return the num1 and num2,
+withouth checking their counts, O/P would be [3,2]. To avoid these cases,
+We again iterate the loop to check if their counts is greater than (n//3).
+Code:
+class Solution:
+    def majorityElement(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        num1 = -1
+        num2 = -1
+        count1 = 0
+        count2 = 0
+        for i in range(n):
+            if(nums[i] == num1):
+                count1+=1
+            elif(nums[i] == num2):
+                count2+=1
+            elif(count1 == 0):
+                num1 = nums[i]
+                count1+=1
+            elif(count2 == 0):
+                num2 = nums[i]
+                count2+=1
+            else:
+                count1 -=1
+                count2 -=1
+        ans = []
+        count1 = 0
+        count2 = 0
+        for i in range(n):
+            if(nums[i]==num1):
+                count1+=1
+            elif(nums[i]==num2):
+                count2+=1
+        if(count1 > (n//3)):
+            ans.append(num1)
+        if(count2 > (n//3)):
+            ans.append(num2)
+        return ans
