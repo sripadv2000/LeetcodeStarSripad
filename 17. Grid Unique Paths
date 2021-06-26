@@ -1,0 +1,41 @@
+17)  Grid Unique Paths
+    P: https://leetcode.com/problems/unique-paths/
+	Method-1: Brute Force Recursive Solution; Exponential time and space
+def countPaths(i,j,m,n):
+    if(i==(m-1) and j==(n-1)):
+        return 1
+    if(i>m or j>n):
+        return 0
+    else:
+        return countPaths(i+1,j)+countPaths(i,j+1)
+Method-2: Convert the recursive solution into DP(Memoization).
+TC:O(m*n); SC:O(m*n)
+def countPaths(i,j,m,n,dp[][]):
+    if(i==(m-1) and j==(n-1)):
+        return 1
+    if(i>=m or j>=n):
+        return 0
+    if(dp[i][j]!=-1):
+	return dp[i][j]
+    else:
+        dp[i][j] = countPaths(i+1,j,dp)+countPaths(i,j+1,dp)
+	return dp[i][j]
+Method-3(Most Optimised):
+For 2*3 matrix, the possibilities are RRD,RDR,DRR. Therefore 3 steps.
+Number of right directions = No.ofColumns-1 = (n-1)
+Number of down directions = No.ofRows-1 = (m-1)
+Total number of directions to take = (m-1)+(n-1) = (m+n-2)
+So out of total number of directions, if we are able to choose (n-1) right directions
+or (m-1) down directions, then we are done.
+(m+n-1)^C_(m-1)[TC:O(m-1);SC:O(1)] or (m+n-1)^C_(n-1)[TC:O(n-1);SC:O(1)].
+Trick for finding nCr: for ex: 10C3: (10*9*8)/(3*2*1)
+Number of elements in Nr = Number of elements in Dr
+Code:
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        N = m+n-2
+        r = m-1
+        res = 1
+        for i in range(1,r+1):
+            res = res*(N-r+i)//i
+        return res
