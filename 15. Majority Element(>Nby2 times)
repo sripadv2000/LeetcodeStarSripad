@@ -1,0 +1,70 @@
+12) (3) Majority Element (>N/2 times)
+	P: https://leetcode.com/problems/majority-element/
+	Method-1: TC: O(n^2); SC: O(1); O/P: TLE
+	We can exhaust the search space in quadratic time 
+	by checking whether each element is the majority element.
+class Solution:
+    def majorityElement(self, nums):
+        majority_count = len(nums)//2
+        for num in nums:
+            count = sum(1 for elem in nums if elem == num)
+            if count > majority_count:
+                return num
+        
+        Method-2: TC: O(n); SC: O(n)
+	We know that the majority element occurs more than floor(n/2) times, 
+	and a HashMap allows us to count element occurrences efficiently.
+Code:
+class Solution:
+    def majorityElement(self, nums):
+        dic={}
+        for i in nums:
+            if(i in dic):
+                dic[i]+=1
+            else:
+                dic[i]=1
+        countmax= max(dic, key=dic.get)
+        return countmax
+OR
+class Solution:
+    def majorityElement(self, nums):
+        counts = collections.Counter(nums)
+        return max(counts.keys(), key=counts.get)
+    
+	Method-3: TC: O(nlogn); SC: O(1) if inplace sorting or O(n), but this modifies the orginal array.
+Since the majority element is the element that occurs more than (n//2) times, 
+the middlemost element is always the majority element.
+If the elements are sorted in monotonically increasing (or decreasing) order, 
+the majority element can be found at index floor(n/2), (floor(n/2)+1
+incidentally, if n is even).
+Code:
+class Solution:
+    def majorityElement(self, nums):
+        nums.sort()
+        return nums[len(nums)//2] 
+
+	Method-4: Boyer-Moore Voting Algorithm; O(n); SC: O(1) 
+Take 2 variables count and element and the algorithm is as follows:
+In the for loop,
+if(cnt==0):
+    ele=a[i]
+if(ele==a[i]):
+    cnt+=1
+else:
+    cnt-=1
+If we dry run on multiple test cases, and insert flags whenever count becomes 0,
+the majority element will always appear in the last set of elements.
+In the previous sets, the count of majority will be equal to minority.
+Code:
+class Solution:
+    def majorityElement(self, nums):
+        count = 0
+        ele = 0
+        for i in range(len(nums)):
+            if count == 0:
+                ele = nums[i]
+            if(nums[i] == ele):
+                count += 1
+            else:
+                count -= 1
+        return ele
