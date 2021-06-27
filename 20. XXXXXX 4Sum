@@ -1,0 +1,16 @@
+20) 4Sum
+P: https://leetcode.com/problems/4sum/
+Method-1: 
+Sort the array and use 3pointer+BS to generate lists and store them.
+Again pass the set function to the stored lists to get unique ones.
+TC: O(NlogN + N^3 logN); SC: O(1)
+
+Method-2: 4 pointer technique.(i,j,left,right)
+TC: O(N^3); SC: O(1)
+Initially, i is pointing to first element, j to second, left pointer to the element
+after j and right pointer to the end of the array.
+Keeping i and j intact, if we calculate the new target sum, it is (target-ar[i]-ar[j]).
+Now we move left and right as long as we meet the target sum.
+Whenever values at left and right add up to give remaining, 
+we move both the pointers to the next step.
+Key point is that we jump duplicates since the duplicates is not permissible.
