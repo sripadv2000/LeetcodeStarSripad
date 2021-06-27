@@ -1,0 +1,15 @@
+18) Reverse Pairs
+P: https://leetcode.com/problems/reverse-pairs/
+
+Two elements a[i] and a[j] form an inversion if a[i] > 2*a[j] and i < j.
+Method-1: TC:O(n^2); SC:O(1)
+Traverse through the array, and for every index, find the number of smaller elements multiplied by 2 on its right side of the array. 
+This can be done using a nested loop. Sum up the counts for all index in the array and print the sum.
+Code:
+def getInvCount(arr, n):
+    inv_count = 0
+    for i in range(n):
+        for j in range(i + 1, n):
+            if (arr[i] > 2*arr[j]):
+                inv_count += 1
+    return inv_count
