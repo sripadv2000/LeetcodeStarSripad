@@ -1,6 +1,11 @@
 25) Reverse a LinkedList
     P: https://leetcode.com/problems/reverse-linked-list/
+
+I/P: 1->2->3->4->5->None
+O/P: None<- 1<- 2<- 3<- 4<- 5 and return the pointer pointing to 5.
+
 Refer SI Notes.
+Iterative Approach: TC: O(n); SC:O(1)
 Create a dummy node and point it to NULL.Then reverse the links.
 Code:
 class Solution:
@@ -13,3 +18,24 @@ class Solution:
             head = next
         head = prev   # return prev
         return head
+
+Recurive Approach: TC: O(n); SC:O(n)
+The extra space comes from the implicit stack space due to recursion. The recursion could go n levels deep.
+
+The recursive version is slightly trickier and the key is to work backwards. 
+Assume that the rest of the list had already been reversed bu doing the step: rhead = self.reverseList(head.next)
+Our present situation: 1-> 2<- 3<- 4<- 5; rhead pointing to 5.
+and head is pointing to 1.
+So, head.next.next = head; makes the list: 1<- 2<- 3<- 4<- 5
+head.next = None; makes the list: None<- 1<- 2<- 3<- 4<- 5
+return rhead
+
+Code:
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        if(head==None or head.next==None):
+            return head
+        rhead = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return rhead
