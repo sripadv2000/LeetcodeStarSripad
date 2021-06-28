@@ -1,0 +1,29 @@
+30) Add Two Numbers Given as LinkedLists
+    P: https://leetcode.com/problems/add-two-numbers/
+    
+Method-1: TC:O(max(n1,n2)); SC: O(max(n1,n2))
+Create a dummy node for answer LL. Using variables sum and carry, compute the value at the answer node.
+If any of the value of LLs or carry exists, then perform the addition operations.
+carry=sum//10 and and add only sum%10 to the LL. dummy.next is the head of the resultant LL
+and to complete the LL, we use the temp pointer.
+
+Code:
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        dummy = ListNode()
+        temp = dummy
+        carry = 0
+        while(l1!=None or l2!=None or carry):
+            sum = 0
+            if(l1!=None):
+                sum+=l1.val
+                l1 = l1.next
+            if(l2!=None):
+                sum+=l2.val
+                l2 = l2.next
+            sum += carry
+            carry = sum//10
+            node = ListNode(sum%10)
+            temp.next = node
+            temp = temp.next
+        return dummy.next #as head node might get deleted.
