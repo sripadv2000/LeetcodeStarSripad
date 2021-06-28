@@ -1,0 +1,43 @@
+27) Merge two Sorted Lists
+    P: https://leetcode.com/problems/merge-two-sorted-lists/
+    
+Method-1: TC: O(n1+n2) SC: O(n1+n2)
+Creating a new LL by iterating through both LLs.
+
+Method-2: Inplace sorting of LLs.
+TC: O(n1+n2) SC: O(1)
+Code:
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        new_head = None
+        if(l1 == None):
+            return l2
+        if(l2 == None):
+            return l1
+        if(l1 and l2):
+            if(l1.val<=l2.val):
+                sorting = l1
+                l1 = sorting.next
+            else:
+                sorting = l2
+                l2 = sorting.next
+        new_head = sorting
+        while(l1 and l2):
+            if(l1.val<=l2.val):
+                sorting.next = l1
+                sorting = l1
+                l1 = sorting.next
+            else:
+                sorting.next = l2
+                sorting = l2
+                l2 = sorting.next
+        if(l1 == None):
+            sorting.next = l2
+        if(l2 == None):
+            sorting.next = l1
+        return new_head
