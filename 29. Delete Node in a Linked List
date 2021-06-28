@@ -1,0 +1,17 @@
+29) Delete Node in a Linked List
+    P: https://leetcode.com/problems/delete-node-in-a-linked-list/
+    
+Method-1: TC:O(1); SC: O(1)
+Just copy the node's next val to node's val.
+then do node.next=node.next.next
+Code:
+class Solution:
+    def deleteNode(self, node):
+        """
+        :type node: ListNode
+        :rtype: void Do not return anything, modify node in-place instead.
+        """
+        node.val = node.next.val
+        node.next = node.next.next
+Check if the node is last node; i.e. if(node.next==None)
+If yes, do node=None.
