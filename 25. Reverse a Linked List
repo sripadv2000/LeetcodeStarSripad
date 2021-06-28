@@ -1,0 +1,15 @@
+25) Reverse a LinkedList
+    P: https://leetcode.com/problems/reverse-linked-list/
+Refer SI Notes.
+Create a dummy node and point it to NULL.Then reverse the links.
+Code:
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        prev = None
+        while(head!=None):
+            next = head.next
+            head.next = prev
+            prev = head
+            head = next
+        head = prev   # return prev
+        return head
