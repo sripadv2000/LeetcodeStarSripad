@@ -1,4 +1,4 @@
-22) (4) Remove Nth Node From End of Linked List
+28) Remove Nth Node From End of Linked List
     P: https://leetcode.com/problems/remove-nth-node-from-end-of-list/	
     
 Method-1: TC:O(2n); SC: O(1)
