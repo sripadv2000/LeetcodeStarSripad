@@ -1,0 +1,25 @@
+23) Count the number of subarrays having a given XOR
+P: https://www.geeksforgeeks.org/count-number-subarrays-given-xor/
+I/P:
+arr = [ 4, 2, 2, 6, 4 ]
+n = len(arr)
+m = 6
+O/P:
+4
+
+Method-1: TC: O(n^2); SC: O(1)
+Brute Force Method is to have two loops i-(0->n) and j-(i->n) and just count the number of subarrays with 0 xor
+starting with every subarray.
+Code:
+def subarrayXor(arr, n, m):
+    ans = 0
+    for i in range(0,n):
+        xorSum = 0
+        for j  in range(i,n):
+            xorSum = xorSum ^ arr[j]  
+            if (xorSum == m):
+                ans+=1
+    return ans
+
+Method-2:
+y^k=xr -> y=k^xr
