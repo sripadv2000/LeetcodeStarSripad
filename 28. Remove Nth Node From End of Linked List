@@ -1,0 +1,39 @@
+22) (4) Remove Nth Node From End of Linked List
+    P: https://leetcode.com/problems/remove-nth-node-from-end-of-list/	
+    
+Method-1: TC:O(2n); SC: O(1)
+Iterate the LL to find the length of LL.
+Then subtract the given value and again iterate to delete the element.
+If the item to be deleted is the first node, then just do head=head.next
+
+Method-2: TC:O(n); SC: O(1)
+Tortoise Method using slow and fast pointers.
+Create a dummy node and initialise slow and fast pointers to it.
+fast pointer first moves by n steps.
+Later the slow and fast pointers move by one step till the condition fast.next!=None
+Code:
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        dummy = ListNode()
+        dummy.next = head
+        slow = dummy
+        fast = dummy
+        for i in range(n):
+            fast = fast.next
+        while(fast.next!=None):
+            slow = slow.next
+            fast = fast.next
+        slow.next = slow.next.next
+        return dummy.next
+        
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+2nd element from right is node 4, which is 4th from left.
+To delete the 4th node, we should stand at 3rd node.
+So in anyway in the while loop, we take the fast to last node, for slow pointer to come to 3rd node, 
+it would be comfortable if we have a dummy node at the beginning.
