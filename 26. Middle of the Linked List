@@ -1,0 +1,17 @@
+26) Find middle of LinkedList
+    P: https://leetcode.com/problems/middle-of-the-linked-list/
+Method-1: Brute Force; TC: O(n)+O(n/2) SC: O(1)
+Iterate the LL, find the number of nodes in LL, our answer is at 
+Number of nodes divided by 2 and plus 1. This takes 2 iterations over the LL.
+
+Method-2: Tortoise Method using slow and fast pointers.
+TC: O(n/2) SC: O(1)
+Code:
+class Solution:
+    def middleNode(self, head: ListNode) -> ListNode:
+        slow = head
+        fast = head
+        while(fast!=None and fast.next!=None):
+            slow = slow.next
+            fast = fast.next.next
+        return slow
