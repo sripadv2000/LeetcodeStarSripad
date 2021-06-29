@@ -1,0 +1,42 @@
+31) Intersection point of two Linked Lists
+    P: https://leetcode.com/problems/intersection-of-two-linked-lists/
+m=len(LL1)
+n=len(LL2)
+If the LLs are of different lengths, then consider LL1 is shorter.
+
+Method-1: TC: O(m*n)
+Pointers to both the heads are given.
+For every node in LL1, check the whole LL2 whether the nodes are same or not.
+If no, do l1=l1.next and again check the whole LL2.
+So for every node in one LL, we check the whole other LL. 
+
+Method-2: Hashing TC: O(m+n)
+Traverse the LL1 and store all the addresses in a hashmap not values.
+Now, traverse the second LL and output the first node that we find in the hashmap. 
+
+Method-3: TC:O(m)+O(n-m)+O(n) = O(2m)
+Put dummy pointer d1 on head of LL1 and d2 on head of LL2.
+Iterate throughout the LLs and find the lengths of respective LLs.
+Then find the difference of lengths and move the dummy pointer of LL of greater length
+by the difference of lengths. Then move d1 and d2 simultaneously by one step each.
+Output the answer where d1==d2.
+If the both LLs are separate, then by the time both d1 and d2 reach None, return None.
+
+Method-4: TC:O(2n); SC: O(1)
+Put dummy pointer d1 on head of LL1 and d2 on head of LL2.
+Move d1 and d2 simultaneously and if d1 reaches None, put d1 at head2 and if
+d2 reaches None, put d2 at head1. They will meet the intersection point
+after both d1 and d2 start from head2 and head1 respectively.
+Code:
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        if(headA==None or headB==None):
+            return None
+        a = headA
+        b = headB
+	#if a and b have different len,then we will stop the loop after second iteration
+        while(a!=b):
+	    #for the end of first iteration, we just reset the pointer to the head of another LL
+            a = headB if a==None else a.next
+            b = headA if b==None else b.next
+        return a
