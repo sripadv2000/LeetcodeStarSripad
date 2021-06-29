@@ -1,0 +1,26 @@
+32) Detect a Cycle in Linked List
+    P: https://leetcode.com/problems/linked-list-cycle/
+Method-1: Use Hashing TC:O(n); SC: O(n)
+Create a hashtable and take a dummy pointer to head of LL.
+If the dummy node is not in Hashtable, then add the nodes into the hash table.
+If the dummy node is in Hashtable, then output the node.
+
+Method-2: TC:O(n); SC: O(1)
+Taking slow and fast pointers to detect the cycle in the LL, if both the slow and fast pointers meet,
+Then it proves that there is a cycle in the LL.
+Code:
+class Solution:
+    def hasCycle(self, head: ListNode) -> bool:
+        if(head==None or head.next==None):
+            return False
+        slow = head
+        fast = head
+        while(fast.next!=None and fast.next.next!=None):
+            fast=fast.next.next
+            slow=slow.next
+            if(fast == slow):
+                return True
+        return False
+# fast.next.next!=None because take a situation where slow is at last node 
+# and fast is at 2nd last node, in the next step, both slow and fast pointers
+# meet but at None. This should not happen.
