@@ -1,0 +1,36 @@
+35) Find the starting point of the loop of LL
+P: https://leetcode.com/problems/linked-list-cycle-ii/
+
+Method-1: Use Hashing TC:O(n); SC: O(n)
+Create a hashtable and take a dummy pointer to head of LL.
+If the dummy node is not in Hashtable, then add the nodes into the hash table.
+If the dummy node is in Hashtable, then output the node.
+
+Method-2: TC:O(n); SC:O(1)
+s-> (l1+l2)
+f-> (l1+l2+nc)
+f=2s
+l1+l2+nc=2(l1+l2)
+l1=nc-l2
+Code:
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+class Solution:
+    def detectCycle(self, head: ListNode) -> ListNode:
+        if(head==None or head.next==None):
+            return None
+        slow = head
+        fast = head
+        entry = head 
+        while(fast.next!=None and fast.next.next!=None):
+            fast=fast.next.next
+            slow=slow.next
+            if(slow==fast):
+                while(slow!=entry): #if there is a cycle
+                    slow=slow.next
+                    entry=entry.next
+                return entry	    #found the meeting point
+        return None #if fast reaches None and no cycle exists
