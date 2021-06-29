@@ -1,0 +1,46 @@
+34) Palindrome Linked List
+    P: https://leetcode.com/problems/palindrome-linked-list/  
+Method-1: TC: O(n)+O(n/2); SC: O(n)
+Traverse the LL and store the values in a array. Check if the array is palindrome or not.
+
+Method-2: TC: O(n/2)+O(n/2)+O(n/2)+O(n/2)+O(n/2); SC: O(1)
+This method involves the concepts of finding the middle of the LL and reverse the LL.
+(To find middle of LL) + (To reverse the right half of LL) +
+(To compare the left half and right half) + [(To again find middle of LL) +
+(To again reverse the right half of LL to get the orginal LL)]
+[#Only when interviewer asks to return the orginal LL] 
+Code:
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        prev = None
+        while(head!=None):
+            next = head.next
+            head.next = prev
+            prev = head
+            head = next
+        head = prev
+        return head
+    
+    def isPalindrome(self, head: ListNode) -> bool:
+        if(head == None or head.next == None):
+            return True
+        slow = head
+        fast = head
+        #find middle of LL
+        while(fast.next!=None and fast.next.next!=None):
+            slow = slow.next
+            fast = fast.next.next
+        #reverse right half
+        slow.next = self.reverseList(slow.next)
+        slow = slow.next
+        while(slow != None):
+            if(head.val!=slow.val):
+                return False
+            head = head.next
+            slow = slow.next
+        return True
