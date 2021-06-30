@@ -10,14 +10,18 @@ class Solution:
                 if(nums[j] == target-nums[i]):
                     return [i]+[j]
 Method-2: Using map TC: O(n) ;SC: O(n)
-We use a hashtable in this approach. Containing (element,index).
+We use a hashtable in this approach. Containing (index,element).
 First, take an element a[i] and check whether target-a[i] is there in the hashtable.
-If yes, return the indices. Else, store the (a[i],index) in the hashtable.
+If yes, return the indices of the element in hashmap and the current element. Else, store the (index,a[i]) in the hashtable.
+There is definitely one and only solution in the array.(lets say ele1 and ele2)
+So while searching in the hashmap, for ele1, ele2 is not still there in the hashmap. For ele2, we will find target-ele2 thet is ele1 in the hashmap.
+So the hashmap always stores the previous values in it.
 Code:
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        dic = {}
-        for i, x in enumerate(nums):
-            if target - x in dic:
-                return [dic[target - x], i]
-            dic[x] = i
+        prevMap = {} # val : index
+        for i, n in enumerate(nums):
+	    diff = target - n
+            if diff in prevMap:
+                return [prevMap[diff], i]
+            prevMap[x] = i
