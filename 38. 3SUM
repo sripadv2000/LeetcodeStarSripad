@@ -1,0 +1,62 @@
+38) 3SUM
+P: https://leetcode.com/problems/3sum/
+
+Method-1: TC:O(n^3(logM)) logM to put those elements into the set to get unique elements.
+SC:O(M)
+Run 3 loops and if any unique triplet is found, then include them in the set.
+
+Method-2: TC: O(N^2(logM)); SC: log(M)+log(N)
+a+b+c==0
+Store all the elements with their corresponding frequencies in the hashmap.
+For a and b, iterate 2 loops and for c, check if -(a+b) is present in the hashmap.
+So,
+for (i->n-1):
+    hash[a[i]]--
+    for (j=i+1 ->n-1):
+	hash[a[j]]--
+	[...
+	...
+	...]
+	hash[a[j]]++
+    hash[a[i]]++
+when you include a, then delete once occurence of a in the hashmap.
+Similar should be done to b.
+After all the operations are carried out in finding c,
+then again include b and a.
+If a unique triplet is found, thenpush them into a set.
+Make sure that the triplet is in ascending order.
+(Refer 10:55) if not understood.
+
+Method-3: TC: O(N^2); SC: log(M)
+SC not really logM becaue we are using that space to store our answer.
+The best solution to this challenge is to use 2-pointer approach.
+For implementing 2-pointer approach, sort the array.
+wkt, a+b+c=0
+By keeping a constant, b+c=-a, b and c can be found using 2 pointer approach.
+Here are some minute things to look after because we are not really using a set.
+We are directly storing the unique values.
+Code:
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        res=[]
+        n=len(nums)
+        for i in range(n-2):
+            if(i==0 or (i>0 and nums[i]!=nums[i-1])):
+                lo=i+1
+                hi=n-1
+                summ = 0-nums[i]
+                while(lo<hi):
+                    if(nums[lo]+nums[hi]==summ):
+                        res.append([nums[i],nums[lo],nums[hi]])
+                        while(lo<hi and nums[lo]==nums[lo+1]):
+                            lo+=1
+                        while(lo<hi and nums[hi]==nums[hi-1]):
+                            hi-=1
+                        lo+=1
+                        hi-=1
+                    elif(nums[lo]+nums[hi]<summ):
+                        lo+=1
+                    else:
+                        hi-=1
+        return res
