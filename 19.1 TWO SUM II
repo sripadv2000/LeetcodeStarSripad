@@ -1,1 +1,21 @@
+19.1) TWO SUM II
+P: https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
 
+Refer 19. Two Sum for the first 2 approaches.
+Just take care that this question follows 1 based indexing.
+
+Optimal Approach: TC: O(n); SC:O(1)
+Since the array is sorted, we can implement 2 pointer technique.
+Code:
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        p=0
+        q=(len(numbers)-1)
+        while(p<=q):
+            currSum = numbers[p]+numbers[q]
+            if(currSum==target):
+                return [p+1,q+1]
+            elif(currSum<target):
+                p+=1
+            else:
+                q-=1
