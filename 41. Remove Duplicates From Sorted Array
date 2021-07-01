@@ -1,4 +1,4 @@
-40) Remove Duplicates From Sorted Array
+41) Remove Duplicates From Sorted Array
 P: https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 Method-1: TC:O(n)+O(n); SC: O(n)
 Iterating the whole array and storing the unique elements in list and again copying
