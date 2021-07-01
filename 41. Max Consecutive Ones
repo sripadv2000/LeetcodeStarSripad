@@ -1,0 +1,19 @@
+41)Max Consecutive Ones
+P: https://leetcode.com/problems/max-consecutive-ones/
+
+In a forloop, iterate the array and count the number of consecutive ones.
+Answer is in the maximum variable. Whenever the count variable exceeds the
+maximum variable, then maximum=count.
+
+Code:
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        cnt=0
+        gre=0
+        for i in nums:
+            if(i==1):
+                cnt+=1
+            else:
+                cnt=0    
+            gre=max(gre,cnt)
+        return gre
