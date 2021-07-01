@@ -1,4 +1,4 @@
-38) 3SUM
+39) 3SUM
 P: https://leetcode.com/problems/3sum/
 
 Method-1: TC:O(n^3(logM)) logM to put those elements into the set to get unique elements.
