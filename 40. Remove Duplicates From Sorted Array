@@ -1,0 +1,53 @@
+40) Remove Duplicates From Sorted Array
+P: https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+Method-1: TC:O(n)+O(n); SC: O(n)
+Iterating the whole array and storing the unique elements in list and again copying
+elements back to the array is Brute Force approach.
+Extra space of O(n).
+Code:
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        n=len(nums)
+        l=[] #List that stores unique eelements
+        for i in nums:
+            if i not in l:
+                l.append(i)
+        m=len(l)
+        for i in range(m):
+            nums[i]=l[i] #Copying back elements into the nums
+        return m            
+
+Method-2: Two Pointer approach. TC:O(n); SC: O(1)
+Take 2 pointers i,j.
+i=0;j=1; if i and j point to same element, then increment j.
+If i and j point to different elements,increment i and copy j'th element to i'th place.
+Code:
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        n=len(nums)
+        if(n<=1):
+            return n
+        i=0
+        j=1
+        while(j<n):
+            if(nums[i]==nums[j]):
+                j+=1
+            else:
+                i+=1
+                nums[i]=nums[j]
+		            #j+=1
+        return i+1
+
+or same code written differently,
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        n=len(nums)
+        if(n<=1):
+            return n
+        i=0
+        for j in range(1,n):
+            if(nums[j]!=nums[i]):
+                i+=1
+                nums[i]=nums[j]
+        return i+1
