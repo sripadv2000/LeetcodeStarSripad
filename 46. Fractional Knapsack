@@ -1,0 +1,21 @@
+46) Fractional Knapsack
+P: https://practice.geeksforgeeks.org/problems/fractional-knapsack-1587115620/1
+
+Input:
+N = 3, W = 50
+values[] = {60,100,120}
+weight[] = {10,20,30}
+Output:
+240.00
+
+Explanation: V/W[] = {6,5,4} 
+So we take the first element with 10 weight, Remaining weight = 50-10=40;  Profit=60
+Taking the second element with weight 20, Remaining weight = 40-20=20;  Profit=60+100
+We cant totally take the 3rd element and since fractional knapsack is allowed,
+For 30 weight, profit is 120 -> for 20 weight, profir would be 80.
+So for the remaining 20 weight of knapsack, profit= 60+100+80 = 240
+
+Method: TC: O(NlogN)+O(N)
+Whenever we want to maximise the value, we think Greedily. So for a fixed weight of knapsack, to obtain maximum value,
+take the items which have more (Value/Weight) ratio.
+So sort the items in respect to (Value/Weight).
