@@ -1,0 +1,34 @@
+44) Minimum number of platforms required for a railway station
+P: https://practice.geeksforgeeks.org/problems/minimum-platforms-1587115620/1#
+
+If asked in a interview, ask whether the starting times are sorted or not, because the ending times will be in correspondence to the staring time.
+Sort the start and end arrays individually in ascending order. It might occur that the start and departure time of a train might be jumbled,
+i.e. may be present at different indexes.
+We don't care about the order because we just need one instance where 
+maximum platforms are occupied. That is what matters to us.
+Then take 2 variables, platform and maximum.
+Platform takes count of how many platforms are occupied at any instance.
+if(platform>maximum):
+    maximum=platform
+TC: O(2NlogN)+O(2N); SC:O(1)
+2NlogN to sort the 2 arrays and 2N because we are using 2-pointer approach to find the minimum prlatforms required.
+SC:O(1) as we are not using any externaal space.
+Code:
+class Solution:
+    def minimumPlatform(self,n,arr,dep):
+        arr.sort()
+        dep.sort()
+        platform=1
+        maxi=1
+        i=1
+        j=0
+        while(i<n and j<n):
+            if(arr[i]<=dep[j]):
+                platform+=1 #(<=)because, if the arrival time of one train equals the departure time of other, we need one more platform.
+                i+=1
+            elif(arr[i]>dep[j]):
+                platform-=1
+                j+=1
+            if(platform>maxi):
+                maxi=platform
+        return maxi
