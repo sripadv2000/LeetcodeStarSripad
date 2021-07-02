@@ -1,0 +1,51 @@
+45) Job Sequencing Problem | Greedy Algorithms
+P: https://practice.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1#
+
+TC: O(NlogN)+O(N*M); SC:O(M)
+
+Since we want maximum profit, sort the jobs in decending order of their profits.
+We always perform the job in its last deadline day as we can accommodate the 
+remaining jobs in the previous days. In this way, we can do maximum jobs.
+At a particular time, only one job can be done.
+Take a jobs array of size of maximum deadline and initialise it with -1.
+And take a profit variable to count the total profit.
+Since the job with maximum profit is at first, place it at the position of deadline.
+And from the 2nd job onwards, check if its deadline position is available.
+If yes, place it. If it is occupied, then traverse backwards from deadline 
+and place it at the available position.
+If asked to print the sequence of jobs, print all the values if they are not equal to -1.
+
+TC: O(NlogN)+O(N*M) because to sort the array + For every deadline, we check the availability from (deadline->1). So for N JobIDs, checking from maximum deadline from (M->1).
+SC: O(M) as we take jobs array of size of maximum deadline.
+[We can use disjoint set to remove the check from the last day to the first day, solve COLORFUL ARRAY from SPOJ to understand how to solve this in O(NlogN).]
+
+Code:
+class Solution:
+    #Function to find the maximum profit and the number of jobs done.
+    def JobScheduling(self,Jobs,n):
+        for i in range(n):
+            for j in range(n - 1 - i):
+                if(Jobs[j].profit < Jobs[j + 1].profit):
+                    Jobs[j], Jobs[j + 1] = Jobs[j + 1], Jobs[j]
+        # To keep track of free time slots
+        t=0
+        for i in range(n):
+            if(Jobs[i].deadline > t):
+                t = Jobs[i].deadline
+                
+        result = [-1] * (t+1)
+        # Iterate through all given jobs
+        countJobs=0
+        jobProfit=0
+        for i in range(n):
+            for j in range(Jobs[i].deadline,0,-1):
+                if(result[j] == -1):
+                    result[j] = i
+                    countJobs+=1
+                    jobProfit+=Jobs[i].profit
+                    break
+        ans=[]
+        ans.append(countJobs)
+        ans.append(jobProfit)
+        return ans
+Running right against input but TLE when submitting.
