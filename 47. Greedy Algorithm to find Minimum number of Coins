@@ -1,0 +1,39 @@
+47) Greedy Algorithm to find Minimum number of Coins
+P: https://www.geeksforgeeks.org/greedy-algorithm-to-find-minimum-number-of-coins/
+
+Method: TC: O(V); SC: O(V)
+Approach: A common intuition would be to take coins with greater value first. 
+This can reduce the total number of coins needed. 
+Start from the largest possible denomination and keep adding denominations while the remaining value is greater than 0. 
+Step1: Iterate the coins array from back.
+Step2: Initialize result as empty.
+Step3: Find the largest denomination that is smaller than current amount.
+Step4: Add found denomination to result. Subtract value of found denomination from amount.
+Step5: If amount becomes 0, then print result.
+Step6: Else repeat steps 3 and 4 for new value of V.
+
+Code:
+def findMin(V):
+	deno = [1, 2, 5, 10, 20, 50,
+			100, 500, 1000]
+	n = len(deno)
+	ans = []
+	i = n - 1
+	while(i >= 0):
+		while (V >= deno[i]):
+			V -= deno[i]
+			ans.append(deno[i])
+		i -= 1
+	for i in range(len(ans)):
+		print(ans[i], end = " ")
+
+# Driver Code
+if __name__ == '__main__':
+	n = 93
+	print("Following is minimal number",
+		"of change for", n, ": ", end = "")
+	findMin(n)
+Note: The above approach may not work for all denominations. 
+For example, it doesn’t work for denominations {9, 6, 5, 1} and V = 11. 
+The above approach would print 9, 1 and 1. But we can use 2 denominations 5 and 6. 
+For general input, below dynamic programming approach can be used.
