@@ -1,0 +1,62 @@
+49) Subset Sums | Recursion
+    P: https://practice.geeksforgeeks.org/problems/subset-sums2234/1
+Expected Time Complexity: O(2^N)
+Expected Auxiliary Space: O(2^N)
+
+In an array of size n, there are 2^n number of subsets formed.
+
+Method-1: Power Set Method-> TC:O(N*(2^N))  
+Method-2:   
+So, for every index, we make a choice whether to include the element or not.
+
+   	  f(idx,sum=0)     
+     	/        	\
+     /	  	     \
+f(idx+1,sum+arr[idx])    f(idx+1,sum)
+
+Base Case: Whenever ind reaches n(i==n), store sum in a DS.
+The TC is O(2^N)+O((2^N)log(2^N)) and SC is O(2^N).
+Code:
+from itertools import combinations
+class Solution:
+    def subsetSums(self, array, N):
+        l=[]
+        for i in range(0,N+1):
+            for j in list(combinations(array,i)):
+                l.append(sum(j))
+        l.sort()
+        return l
+
+#{ 
+#  Driver Code Starts
+#Initial Template for Python 3
+if __name__ == '__main__':
+    T=int(input())
+    for i in range(T):
+        N = int(input())
+        arr = [int(x) for x in input().split()]
+        ob = Solution()
+        ans = ob.subsetSums(arr, N)
+        for x in ans:
+            print(x,end=" ")
+        print("")
+Code:
+# Python3 program to print sums of
+# all possible subsets.
+# Prints sums of all subsets of arr[l..r]
+def subsetSums(arr, l, r, sum = 0):
+	# Print current subset
+	if l > r:
+		print (sum, end = " ")
+		return
+
+	# Subset including arr[l]
+	subsetSums(arr, l + 1, r, sum + arr[l])
+
+	# Subset excluding arr[l]
+	subsetSums(arr, l + 1, r, sum)
+
+# Driver code
+arr = [5, 4, 3]
+n = len(arr)
+subsetSums(arr, 0, n - 1)
