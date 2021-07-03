@@ -1,0 +1,30 @@
+61) Nth Root of a Number Using Binary Search
+
+For finding nth root of any integer, we use Binary Search.
+BS is not only limited to finding elements in an array.
+Binary Search can be implemented on any search space which is monotonic in nature.
+It can either be linearly increasing or decreasing.
+Code:
+def multiply(number,n):
+    ans=1
+    for i in range(1,n+1):
+        ans=ans*number
+    return ans
+
+def getNthRoot(n,m):
+    low=1
+    high=m
+    eps= 1e-3
+
+    while((high-low)>eps):
+        mid = (low+high)/2
+        if(multiply(mid,n)<m):
+            low=mid
+        else:
+            high=mid
+    return low
+
+n,m = map(int,input().split())
+print(getNthRoot(n,m))
+
+print(pow(m,(1/n)))
