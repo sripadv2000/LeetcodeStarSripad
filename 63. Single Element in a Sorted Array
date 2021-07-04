@@ -1,0 +1,88 @@
+54) Single Element in a Sorted Array
+P: https://leetcode.com/problems/single-element-in-a-sorted-array/
+Solution: https://www.geeksforgeeks.org/find-the-element-that-appears-once-in-a-sorted-array/
+Method-1: XOR approach; TC:O(n); SC:O(1)
+A Simple Solution is to traverse the array from left to right. 
+Since the array is sorted, we can easily figure out the required element.
+
+Code:
+def search(arr, n):
+    ans = -1
+    for i in range(0, n, 2):
+        if (arr[i] != arr[i + 1]):
+            ans = arr[i]
+            break
+    if(arr[n-2] != arr[n-1]):
+        ans = arr[n-1]
+    # ans = -1 if no such element is present.
+    print("The required element is", ans)
+
+# Driver code
+arr = [1, 1, 2, 4, 4, 5, 5, 6, 6]
+Len = len(arr)
+search(arr, Len)
+
+Method-2: XOR approach; TC:O(n); SC:O(1)
+Take a variable xor and initialize it to 0.
+Itearate the loop and perform xor=xor^ar[i]
+Since every element appears twice expect for the unique element, finally the variable contains the answer.
+Code:
+class Solution:
+    def singleNonDuplicate(self, nums: List[int]) -> int:
+        xor=0
+        for i in nums:
+            xor=xor^i
+        return xor
+
+Method-3: Binary Search; TC:O(logN); SC:O(1)
+All elements before the required have the first occurrence at even index (0, 2, ..) 
+and the next occurrence at odd index (1, 3, …). 
+All elements after the required elements have the first occurrence at an odd index and the next occurrence at an even index. 
+
+So in the LeftHalf,
+1st instance->even index
+2nd instance->odd index
+
+So in the Right Half,
+1st instance->odd index
+2nd instance->even index
+
+Code:
+# A Binary search based function to find
+# the element that appears only once
+
+
+def search(arr, low, high):
+	# Base cases
+	if low > high:
+		return None
+	if low == high:
+		return arr[low]
+	# Find the middle point
+	mid = low + (high - low)/2
+	# If mid is even and element next to mid is
+	# same as mid, then output element lies on
+	# right side, else on left side
+	if mid % 2 == 0:
+		if arr[mid] == arr[mid+1]:
+			return search(arr, mid+2, high)
+		else:
+			return search(arr, low, mid)
+	else:
+		# if mid is odd
+		if arr[mid] == arr[mid-1]:
+			return search(arr, mid+1, high)
+		else:
+			return search(arr, low, mid-1)
+
+# Driver Code
+# Test Array
+arr = [1, 1, 2, 4, 4, 5, 5, 6, 6]
+
+# Function call
+result = search(arr, 0, len(arr)-1)
+
+if result is not None:
+	print "The required element is %d" % result
+else:
+	print "Invalid Array"
