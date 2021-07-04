@@ -1,4 +1,4 @@
-54) Single Element in a Sorted Array
+63) Single Element in a Sorted Array
 P: https://leetcode.com/problems/single-element-in-a-sorted-array/
 Solution: https://www.geeksforgeeks.org/find-the-element-that-appears-once-in-a-sorted-array/
 Method-1: XOR approach; TC:O(n); SC:O(1)
@@ -86,3 +86,16 @@ if result is not None:
 	print "The required element is %d" % result
 else:
 	print "Invalid Array"
+	
+Striver's Solution:
+class Solution:
+    def singleNonDuplicate(self, nums: List[int]) -> int:
+        low=0
+        high=len(nums)-2
+        while(low<=high):
+            mid=(low+high)>>1
+            if(nums[mid]==nums[mid^1]):
+                low=mid+1
+            else:
+                high=mid-1
+        return nums[low]
