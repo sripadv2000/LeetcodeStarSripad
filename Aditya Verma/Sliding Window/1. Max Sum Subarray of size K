@@ -1,0 +1,36 @@
+1) Max Sum Subarray of size K
+P: https://practice.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1
+Sol: https://www.geeksforgeeks.org/find-maximum-minimum-sum-subarray-size-k/
+
+Method-1: TC: O(n*k); SC: O(1)
+A Simple Solution is to generate all subarrays of size k, 
+compute their sums and finally return the maximum of all sums.
+
+Method-2: TC: O(n); SC: O(1)
+An Efficient Solution is based on the fact that sum of a subarray (or window) of size k 
+can be obtained in O(1) time using the sum of the previous subarray (or window) of size k. 
+Except for the first subarray of size k, for other subarrays, 
+we compute the sum by removing the first element of the last window and adding the last element of the current window.
+Code:
+class Solution:
+    def maximumSumSubarray (self,K,Arr,N):
+        if(K>N):
+            return -1
+        summ=0
+        mx=0
+        i=0 #start
+        j=0 #end
+        while(j<N):
+            summ+=Arr[j]
+            if((j-i+1)<K):
+                j+=1
+            elif((j-i+1)==K):
+                mx=max(mx,summ)
+                summ-=Arr[i]
+                i+=1
+                j+=1
+        return mx
+        
+Take 2 variable mx and summ which help in calculating sum. To keep track of window, we need a start and end pointer. So take i and j.
+As long as (j-i+1)<K, just increment j. We always add Arr[j] the end element and remove the start element Arr[i] if the size is reached(j-i+1 == k).
+The maximum sum is stored in the mx variable.
