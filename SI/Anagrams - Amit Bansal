@@ -1,0 +1,53 @@
+Anagram: Any permutation of a word is anagram to the same word.
+Ex: (post,stop),(ate,eat),(reserve,reverse) are anagrams.
+    (claim,email),(loud,cloud),(hair,hear) are not anagrams.
+    
+The anagrams should be of same length of course.
+Given 2 strings s1 and s2. Check whether they are anagrams or not.
+Assume that s1 and s2 have a length n.
+
+Method-1: TC: O(n^2); SC: O(1)
+For every letter in the string s1, check whether this appears in s2.
+For every character in s1, we are checking the whole s2 of size n.
+But there is a ambiguity here. Lets take an example of s1="ababc", s2="cabac".
+These are not anagrams but by using this method, we get the answer as they are anagrams.
+So we can fix this; As soon as we find the character in s2, delete it. Deletion in the middle of the string can be complicated.
+So just replace it with a character that can never be matched with any element of s1.(Ex: '#' or '$'....).
+This can be a simple fix so that our Brute Force solytion runs right for every input.
+
+Method-2: O(nlogn) [O(nlogn)+O(nlogn)+O(n)] ;SC: O(1)
+There is a way to make the strings match to the same one. Right, we can sort the strings.
+They both become the same string if they are anagrams.
+Sorting a string of size n will take nlogn time.
+
+Method-3: O(n) ; SC: O(1) as we use the same 26 length array for any length of string.
+If two strings are anagrams, then the count of occurence of every character in s1 will be the same with s2.
+So we can find the frequency of all the characters in s1 and match it with that of s2.
+If suppose that all characters in the strings are lower case, we can take a count array of size 26 and initialize it with 0s.
+Occurence of 'a' will be stored in 0 index, 'b' in index 1, ........'z' in index 25.
+For mapping the elements in the count array, we make use of ASCII values. ('a','z')->(97,122).
+int cnt1[26] = {0};
+for(int i=0; i<N; i++){
+    cnt1[s1[i] - 'a']++;
+}
+Similarly for cnt2 for s2.
+If cnt1 == cnt2, then s1 and s2 are anagrams.
+Instead of count array, we can also use hashmap.
+We can also use a single count array instead of 2.
+Do the same for s1. For every character of s2, instead of adding it to cnt2, remove its occurence from cnt1.
+At the end if all the elements of cnt1 are {0}, then s1 and s2 are anagrams.
+
+ASCII values sum DOES'NT WORK.
+The interviewer may ask to come up with a solution using ASCII values.
+For Ex, (ate,eat) In this case, a+e+t == e+a+t this works fine here.
+But this solution does'nt always work.
+Take the example of (ac,bb) -> (97+99 == 98+98). This gives the "YES" O/P but these are not anagrams.
+This is a trap.
+
+Using Bitwise operator XOR, DOES'NT WORK.
+Similarly if the interviewer may ask to come up with a solution using Bitwise operators, then I might think of using XOR operator.
+For example, (post,stop) -> p^o^s^t == s^t^o^p or ((p^o^s^t) ^ (s^t^o^p)) = 0
+But this solution does'nt always work.
+Take the example of (aa,bb) -> (a^a == b^b) or (a^a ^ b^b = 0). This gives the "YES" O/P but these are not anagrams.
+
+So the above 2 suggestions were just to confuse the applicant. But my objective is to come up with a solution where this method DOES'NT WORK.
