@@ -1,0 +1,44 @@
+Given a number, find its divisors.
+I/P: 12
+O/P: 6 (1,2,3,4,6,12)
+
+I/P: 10
+O/P: 4 (1,2,5,10)
+
+I/P: 16
+O/P: 5 (1,2,4,8,16)
+
+Method-1: Brute Force; TC: O(N); SC: O(1)
+Code:
+def div(N):
+    cnt=0
+    for i in range(1,N+1):
+        if(N%i == 0):
+            cnt+=1
+    return cnt
+print(div(10))
+
+Method-2: Optimization of Method-1; TC: O(N) only but we iterate the loop for N//2 times.; SC: O(1)
+Code:
+def div(N):
+    cnt=1
+    for i in range(1,(N//2)+1):
+        if(N%i == 0):
+            cnt+=1
+    return cnt
+print(div(16))
+
+Method-3: To get all the divisors of N, no need to get beyond sqrt(N); TC: O(N); SC: O(1)
+Only in the case of a Perfect Square Number, we get odd number of divisors.
+Code:
+from math import sqrt
+def div(N):
+    cnt=0
+    for i in range(1,int(sqrt(N))+1):
+        if(N%i == 0):
+            if(i==(N//i)):
+                cnt+=1
+            else:
+                cnt+=2
+    return cnt
+print(div(12))
