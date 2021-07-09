@@ -1,0 +1,27 @@
+Given a number N, find its square root.
+
+Method-1: Brute Force; TC:O(sqrt(N)); SC:O(1)
+Code:
+def SquareRoot(N):
+    for i in range(N):
+        if(i*i==N):
+            return i
+print(SquareRoot(25))
+
+Method-2: Using Binary Search Approach; TC:O(log(N)); SC:O(1)
+lo=1
+hi=N
+mid=(low+high)//2
+Code:
+def SquareRoot(N):
+    low=1
+    high=N
+    while(low<=high):
+        mid=(low+high)>>1
+        if(mid*mid==N):
+            return mid
+        elif(mid*mid<N):
+            low=mid+1
+        else:
+            high=mid-1
+print(SquareRoot(625))
