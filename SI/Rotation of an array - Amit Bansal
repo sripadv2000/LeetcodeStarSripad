@@ -1,0 +1,89 @@
+Given an array of size N, and an integer d, rotate the array by d times in clockwise direction.
+
+I/P: arr[]: 5,1,10,-3,8,12,-1,3,9,7
+INDEX:      0,1, 2, 3,4, 5, 6,7,8,9
+If d=1,O/P: 7,5,1,10,-3,8,12,-1,3,9
+If d=3,O/P: 3,9,7,5,1,10,-3,8,12,-1
+If d=23, we should roate the array 23 times.
+But we observe that if we rotate the same array by N times, we get the original array again.
+N being the size of the array.
+So we must do d=(d%N)
+So the O/P of d=23 is same as d=3.
+
+Method-1: TC: O(N*d); SC: O(1)
+Rotate the array one time at once.
+When d=1, the last element of the array comes to first and the remaining elements move one step right.
+So repeat this by d times in a for loop.
+Code: 
+def rotate(arr,N,d):
+    for i in range(d):
+        temp=arr[-1]
+        for i in range(N-1,0,-1):
+            arr[i]=arr[i-1]
+        arr[0]=temp
+    return arr
+
+arr=[5,1,10,-3,8,12,-1,3,9,7]
+N=len(arr)
+d=3
+print(rotate(arr,N,d))
+
+Method-2: TC: O(N); SC: O(N)
+We observe that the element at arr[i] goes to position arr[i+d].
+Whenever i+d crosses N, then they come to the starting indexes of the array.
+To implement this, we take an output array and perform the above steps to store the elements.
+We copy the elements of arr to the output array, and again copy back the elements of output array to orginal array.
+We copy back all the elemnts to orginal array because the problem statement says to rotate the array and not put them in a different array.
+Code:
+def rotate(arr,N,d):
+    brr=[0]*N
+    for i in range(N):
+        brr[(i+d)%N]=arr[i]
+    for i in range(N):
+        arr[i]=brr[i]
+    #arr=brr
+    return arr
+
+arr=[5,1,10,-3,8,12,-1,3,9,7]
+N=len(arr)
+d=3
+print(rotate(arr,N,d))
+
+We observe that in order to shift the array by d times, it takes O(N) complexity.
+So here we need to optimize the space not the time.
+
+Method-2: TC: O(N); SC: O(1)
+We use the reversed array to obtain the rotated array.
+Considering the example of d=3,
+INDEX:      0,1, 2, 3,4, 5, 6,7,8,9
+I/P: arr[]: 5,1,10,-3,8,12,-1,3,9,7
+If d=3,O/P: 3,9,7,5,1,10,-3,8,12,-1
+Reversearr: 7,9,3,-1,12,8,-3,10,1,5
+
+Comparing the Reversed array and the output array, By again reversing the 2 parts of reversed array, we can get the rotated array.
+1)reverse(0,N,arr)
+2)reverse(0,d,arr)+reverse(d,N,arr)
+For reversing the array, we use the 2 pointer technique and that takes O(N) time.
+The two pointer method makes use of pointers p and q. p=0,q=N-1. swap(arr[p],arr[q]). p+=1,q-=1. In a while loop(p<=q).
+Code:
+def reverse(arr,start,end):
+    while(start < end):
+        temp = arr[start]
+        arr[start] = arr[end]
+        arr[end] = temp
+        start+=1
+        end-=1
+    return arr
+
+def rotateArray(arr,d,N):
+    reverse(arr, 0, n-1)
+    reverse(arr, 0, d-1)
+    reverse(arr, d, n-1)
+    return arr
+
+arr=[5,1,10,-3,8,12,-1,3,9,7]
+n=len(arr)
+d=1
+print(rotateArray(arr,d,n))
+
+
