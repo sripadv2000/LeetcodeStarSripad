@@ -1,0 +1,52 @@
+Following topics were covered in this video - 
+
+1. Basics of Number theory
+2. Primality Testing (naive Approach)
+3. checking prime in O(root(n))
+4. Calculating the sum of divisors
+
+Print prime numbers from 1 to N.
+Brute Force Code: TC: O(n^2)
+def checkPrime(x):
+    for i in range(2,x):
+        if(x%i == 0):
+            return False
+    return True
+    
+n=int(input())
+for i in range(2,n+1):
+    if(checkPrime(i) == 1):
+        print(i)
+        
+Instead of checking the numbers from [2->(N-1)], we can check till sqrt(N).
+We can find this by finding divisors of a number(20 and 100).
+Partition and take i on LHS and (N/i) on RHS.
+Beyond sqrt(N), there is no need to check any furthur.
+
+Slightly optimized code: TC: O(N*(sqrtN)) Just optimized the 11 th line of previous code.
+from math import sqrt
+def checkPrime(x):
+    for i in range(2,int(sqrt(x))):
+        if(x%i == 0):
+            return False
+    return True
+
+n=int(input())
+for i in range(2,n+1):
+    if(checkPrime(i) == 1):
+        print(i)
+
+Print the sum of divisors of a number.
+Given 10, print 1+2+5+10 = 18
+Code: TC: O(sqrtN)
+from math import sqrt
+n=int(input())
+sum=0
+for i in range(1,int(sqrt(n))+1):
+    if(n%i == 0 and i!=(n//i)):
+        sum+=i
+        sum+=(n//i)
+    elif(n%i == 0 and i==(n//i)):
+        sum+=i
+print(sum)
+
