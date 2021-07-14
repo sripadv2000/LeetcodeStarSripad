@@ -1,0 +1,43 @@
+Find the prime numbers from 1 to N.
+TC: < N*sqrtN
+
+For a given value of N, list down all the numbers from 1 to N. wkt 1 is not a prime number so ignore it.
+Start from 2, check whether 2 is a prime number. If yes leave it and circle all the multiples of 2.
+For 3, "yes" 3 is a prime so leave it and circle all the multiples of 3. If already circled, ignore it.
+4 is already circled. So ignore 4 and move on. No need to circle all the multiples of 4 as they definitely got circled by a number previous to it.
+2 in this case because all the multiples of 4 are multiples of 2.
+In summary, if the number is a prime, then circle all its multiples. If not prime, just move on to the next number.
+In the end all the uncircled numbers are the prime numbers between 1 and N.
+
+Take an array from 1 to N inclusive and mark them as 0s assuing that all numbers are prime. 
+After performing some operations, at the end if the array contains 1, then the number is not prime, if 0, prime.
+
+Analysing TC,
+for 2, we run through loop (N/2) times.
+for 3, -> (N/3) times.
+for 5, -> (N/5) times.
+for x, -> (N/x) times.
+So adding all these,
+(N/2)+(N/3)+(N/5)+(N/7).....+(N/x) = N[(1/2)+(1/3)+(1/5)+....+(1/x)]
+We get the summation as log(log(N)) through Taylor Series.
+
+Code:
+def sieve(n):
+    p[0] = 1
+    p[1] = 1
+    for i in range(2,n+1):
+        if(p[i] == 0):
+            j=2
+            while(i*j < n):
+                p[i*j] = 1
+                j+=1
+
+n = int(input())
+p = [0]*(n+1)
+sieve(n)
+for i in range(n):
+    if(p[i]==0):
+        print(i,end=" ")
+O/P:
+50
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 
