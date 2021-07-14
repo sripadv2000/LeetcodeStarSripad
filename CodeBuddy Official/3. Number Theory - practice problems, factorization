@@ -1,0 +1,32 @@
+Following topics are covered in this video - 
+
+1. calculating the lowest prime factor for N numbers
+2. calculating the highest prime factor for N numbers
+3. prime factorization in log(N) of N numbers
+4. precomputation of prime numbers
+
+Problems related to it - 
+https://www.spoj.com/problems/APS/
+https://www.spoj.com/problems/AFS
+https://www.spoj.com/problems/NDIV/
+https://www.spoj.com/problems/CUBEFR/
+https://www.spoj.com/problems/NOSQ/
+
+
+Find the lowest prime factor for every number from 1 to N.
+
+Brute Force method can be done in O(n^2).
+
+This can be done by just modifying the Sieve of Eratosthenes problem.
+For n=10,
+O/P is: 
+For 2, just mark the 2nd index as 2 and all the multiples of 2 as 2.
+For 3, mark 3rd index as 3. For the next multiple 6, do not mark 3 or do not over-ride 2 as 2 is the lowest prime factor.
+So only mark a index if 0 is present at that position.
+
+
+Find the lowest prime factor for every number from 1 to N.
+
+Print all the prime factorisation of a number N.
+
+Print the count of prime numbers present in 1,N.
