@@ -1,0 +1,21 @@
+In this video, we will learn the following things - 
+1. Modulus properties
+2. Fermat theorem
+
+10^9 + 7 is a prime number.
+Why 10e9+7 ?
+
+In C++, using long long int, we can store numbers till 10e18.
+When we do a%b, we can get the answer from 0->b-1.
+
+So for large answers, we are asked to use 10e9+7, ex: (100!) % 10e9+7.
+
+Modulus Properties:
+1) (a+b)%c = (a%c + b%c)%c
+2) (axb)%c = (a%c x b%c)%c
+3) (a-b)%c = (a - b + c)%c
+4) (a/b)%c = (a%c + (b^(c-2))%c)%c if c is prime.
+5) (a^b)%c = 
+
+oeis.org
+wolframalpha.com
