@@ -1,0 +1,10 @@
+A Graph is a non-linear data structure consisting of nodes and edges.
+A Graph consists of a finite set of vertices(or nodes) and set of Edges which connect a pair of nodes.
+The pair is ordered because (u, v) is not the same as (v, u) in case of a directed graph(di-graph). 
+The pair of the form (u, v) indicates that there is an edge from vertex u to vertex v. The edges may contain weight/value/cost.
+Topics covered in this video:
+- Directed and Undirected Graph.
+- In undirected graph, Total degrees of all the nodes = 2 x No. of edges
+- In diected graphs, there is indegree and outdegree.
+- Path in a graph
+- Cyclic graphs
