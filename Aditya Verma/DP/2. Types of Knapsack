@@ -1,0 +1,29 @@
+2) Types of Knapsack
+
+After doing 01 Knapsack, with very minor changes in code I can complete,
+1) Subset Sum
+2) Equal Sum Partition
+3) Count of Subset Sum
+4) Minimum Subset Sum Difference
+5) Target Sum
+6) Number of subset with given difference.
+
+There are 3 types of Knapsack problems:
+1) Fractional Knapsack -> Comes under Greedy Method.
+2) 01 Knapsack 
+3) Unbounded Knapsack
+
+Knapsack is nothing but a bag.
+Input Type:
+For a given weight/Capacity of Knapsack W,
+For n items, wt[] array and val[] array will be given.
+We have to pick the items to maximize the profit.
+
+How to identify that it is a DP problem?
+1) There is choice. For every item, we have the choice to put it into the Knapsack or not.
+2) We have to output the maximum profit.
+This perfectly matches the DP conditions.
+
+First write the Recursive solution. Then perform Memoization or Top-Down. Both are DP.
+
+DP = RECURSION + STORAGE
