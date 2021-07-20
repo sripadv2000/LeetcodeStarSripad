@@ -1,0 +1,85 @@
+A takes n days to do a work of w units. B takes m days to do a work of w units.
+So the rate at which A works = (w/n) units/day
+So the rate at which B works = (w/m) units/day
+If A and B work together, the rate at which they work together = w(m+n)/mn units/day.
+I in 1 day they are doing w(m+n)/mn units of work, then w units of work can be done in mn/(m+n) days.
+
+Note: The time taken by A+B together is mn/(m+n) only dependent on m and n and importantly independent of w.
+
+Q) A can do a work in 4 days. B can do the same work in 12 days. In how many days will they complete the work if they work together?
+Sol) By using the formula, we can directly tell that it is mn/(m+n) = 4*12/(4+12) = 48/16 = 3
+But formula is not prefered. This may work for this case but it will fail in other questions.
+Method-2: Take a multiple of m and n. Need not be LCM.
+Assume total Work = 12 units
+Rate at which A works = 12/4 = 3 units/day
+Rate at which B works = 12/12 = 1 units/day
+Total units of work per day = 3+1 = 4 units/day
+So in 1 day if 4 units is done, then
+      ? days  12 units is done
+In 3 days, 12 units can be done. Answer is 3.
+
+Q) If A can do a work in 10 days and A and B together can complete the same work in 6 days, how many days will B alone will take?
+By using the formula or by equating the rates, (1/6) = (1/10) + (1/x) -> x= 15 days.
+Or w/o using the formula, Assume total Work = 60 units
+Rate at which A works = 60/10 = 6 units/day
+Rate at which B works = 60/x units/day
+Total units of work per day = 60/6 = 10 units/day
+6+(60/x) = 10
+(60/x) = 4
+x=15
+
+Q) P can do a work in 6hrs and Q can do the work in 12hrs. Q started the work and Q joined him after 3hrs. How much time in all will they take to complete the work?
+Assume total Work = 60 units
+Rate at which P works = 60/6 = 10 units/hr
+Rate at which Q works = 60/12 = 5 units/hr
+Q joins after 3 hrs. Meanwhile, P completes 10*3 = 30 units of work in 3 hrs.
+After 3 hrs, Q joins. Rate becomes 10+5 = 15 units/hr
+So the remaining 60-30 = 30 units can be completed in 30/15 = 2 hrs.
+In total, it takes 5 hrs time.
+
+Q) A and B can complete a task in 20 days.
+B and C can complete a task in 30 days.
+A and C can complete a task in 40 days.
+What is the ratio of number of days taken by A when completing the same task alone to the number of days taken by C when completing the same task alone?
+Sol) Assume total Work = 120 units
+Rate at which A+B work = 120/20 = 6 units/day
+Rate at which B+C work = 120/30 = 4 units/day
+Rate at which A+C work = 120/40 = 3 units/day
+Rate at which A+B+C work = (6+4+3)/2 = 13/2 units/day
+Rate at which A works = (13/2)-4 = 5/2 units/day
+Rate at which C works = (13/2)-6 = 1/2 units/day
+Rate/Speed is inversely proportional to time.
+So Days taken by A : Days taken by C = Rate at which C works : Rate at which A works
+Answer is 1:5
+
+Q) A can do a work in 30 days and B can do the same work in 45 days. A started the work and B replaced him after 14 days. 
+In how many days from beginning 80% work will be completed?
+Sol) Assume total Work = 90 units
+Rate at which A works = 90/30 = 3 units/day
+Rate at which B works = 90/45 = 2 units/day
+A works for 14 days completes 14*3 = 42 units.
+80% of total work  = 80% * 90 = 72 units.
+42 units completed by A.
+Remaining 30 units.
+B can complete 30 units in 30/2 = 15 days.
+So in total it takes 14+15 = 29 days to complete 80% of the work.
+
+Q) A can do a work in 3 days and B can do the same work in 6 days. If A and B are working on alternate days. A on first day, B on 2nd again A on 3rd and so on.
+In how many days the work will be completed?
+Sol) Assume total Work = 12 units
+Rate at which A works = 12/3 = 4 units/day
+Rate at which B works = 12/6 = 2 units/day
+To complete 12 units of work by A and B alternately, 4+2+4+2 = 12 units completed in 4 days.
+Answer is 4.
+When the work is big, we cannot manually calculate the days. So take each (4+2) as one turn.
+Turn = 6; Total 12 units can be completed in 2 turns; And each turn has 2 days; So it takes Turns*2 = 4 days.
+Take care when we get fractional days.
+
+Q) A can do a work in 15 days and B can do the same work in 10 days. If A and B are working on alternate days. A on first day, B on 2nd again A on 3rd and so on.
+In how many days the work will be completed?
+Sol) Assume total Work = 90 units
+Rate at which A works = 90/15 = 6 units/day
+Rate at which B works = 90/10 = 9 units/day
+Turn = (6+9) = 15 units/day
+Entire 90 units can be completed in 90/15 = 6 turns
+So it takes 6*2 = 12 days.
