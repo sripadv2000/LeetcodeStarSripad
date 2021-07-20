@@ -83,3 +83,72 @@ Rate at which B works = 90/10 = 9 units/day
 Turn = (6+9) = 15 units/day
 Entire 90 units can be completed in 90/15 = 6 turns
 So it takes 6*2 = 12 days.
+
+Q) A can do a work in 25 days and B can do the same work in 15 days. If A and B are working on alternate days. A on first day, B on 2nd again A on 3rd and so on.
+In how many days the work will be completed?
+Sol) Assume total Work = 150 units
+Rate at which A works = 150/25 = 6 units/day
+Rate at which B works = 150/15 = 10 units/day
+Turn  = (6+10) = 16 units/day
+Entire 150 units can be completed in 150/16 = (9)6/16 turns
+It takes 9 complete turns and 6 units left for A to exactly complete.
+So it takes 2*9 + 1 = 19 days.
+
+Q) A can do a work in 25 days and B can do the same work in 15 days. If A and B are working on alternate days. B on first day, A on 2nd again B on 3rd and so on.
+In how many days the work will be completed?
+Sol) Assume total Work = 150 units
+Rate at which A works = 150/25 = 6 units/day
+Rate at which B works = 150/15 = 10 units/day
+Turn  = (6+10) = 16 units/day
+Entire 150 units can be completed in 150/16 = (9)6/16 turns
+It takes 9 complete turns and 6 units left for B to complete.
+B can complete 10 units of work in a  day.
+To do 6 units of work, it takes 6/10 th time of a day.
+So it takes 2*9 + (6/10) = (18)3/5 days or 93/5 days.
+
+Q) A can do a work in 9 days and B can do the same work in 6 days. If A and B are working on alternate days. A on first day, B on 2nd again A on 3rd and so on.
+In how many days the work will be completed?
+Sol) Assume total Work = 90 units
+Rate at which A works = 90/9 = 10 units/day
+Rate at which B works = 90/6 = 15 units/day
+Turn  = (10+15) = 25 units/day
+Entire 90 units can be completed in 90/25 = (3)15/25 turns
+It takes 3 complete turns and 15 units left.
+In 1 more day, A completes 10 units of work with 5 left.
+For 5 units to complete, B takes 5/15 = 1/3 day
+So it takes 2*3 + 1 + 1/3 = (7)1/3 days or 22/3 days.
+
+Q) A can do a work in 9 days and B can do the same work in 6 days. If A and B are working on alternate days. B on first day, A on 2nd again B on 3rd and so on.
+In how many days the work will be completed?
+Sol) Assume total Work = 90 units
+Rate at which A works = 90/9 = 10 units/day
+Rate at which B works = 90/6 = 15 units/day
+Turn  = (10+15) = 25 units/day
+Entire 90 units can be completed in 90/25 = (3)15/25 turns
+It takes 3 complete turns and 15 units left.
+In 1 more day, B exactly completes 15 units of work.
+So it takes 2*3 + 1 = 7 days.
+
+Q) Tap A can fill the tank in 15hrs whereas B can fill the tank in 30hrs. If both the tanks are opened simultaneously, how much time does it take to fill the tank?
+Sol) Let the capacity of tank be 150 L.
+Rate at which A can fill 150/15 = 10 L/hr.
+Rate at which B can fill 150/30 = 5 L/hr.
+Rate at which A+B can fill 10+5 = 15 L/hr.
+So in 1 hr, A+B can fill 15L;
+So 150L can be filled in 150/15 = 10hrs.
+
+Q) An inlet tap A can fill the tank in 10hrs and an outlet tap B can empty the tank in 30hrs. If both the tanks are opened simultaneously,in how much time the tank gets full?
+Sol) Let the capacity of tank be 90 L.
+Rate at which A can fill 90/10 = 9 L/hr.(Inflow)
+Rate at which B can empty 90/30 = 3 L/hr.(Outflow)
+Rate at which A+B can fill 9-3 = 6 L/hr.
+So in 1 hr, A+B can fill 6L;
+So 90L can be filled in 90/6 = 15hrs.
+Whenever the Outflow is greater than Inflow, the time taken will be infinity.
+
+Q) A pump can fill the tank with water in 2hrs. Because of a leak, it took (2)1/3 hours to fill the tank. The leak can drain all the water in the tank in?
+Sol) Let the capacity of tank = 14 L
+Rate at which A can fill = 7 L/hr
+Rate at which A+leak can fill the tank = 14 / (7/3) = 6 L/hr
+Rate at which leak empties = 7-6 = 1 L/hr.
+Therefore the leak can drain all the water in 14hrs.
