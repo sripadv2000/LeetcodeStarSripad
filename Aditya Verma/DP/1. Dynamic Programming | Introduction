@@ -1,0 +1,21 @@
+1. Dynamic Programming | Introduction
+
+DP is enhanced recursion.
+Parent of DP is recursion.
+Whenever we are repeating the same steps in recursion, there is a chance for optimization by storing the already computed values and retrieving them if they are called again,
+instead of preforming recursion again.
+
+DP is nothing but recursion, wherever recursion takes place, DP can be used.
+How to identify DP?
+1) Choice is given(Take or Not take)
+2) Whenever optimal is asked(min, max, largest, smallest).
+
+Whenever a recursive function is calling itself 2 times, then there is a scope for DP. (For visualization, draw a Fib(5) tree).
+
+How to approach a DP challenge?
+Step-1: Write a recursive function.
+Step-2: Perform Memoization.
+Step-3: Top Down
+First write a recursive solution. Then optimize it by using Memoization or Top-Down.
+
+Solve all the parent questions of DP.
