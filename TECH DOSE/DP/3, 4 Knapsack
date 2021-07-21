@@ -1,0 +1,9 @@
+3) Knapsack Classification
+Seen the different classification of Knapsack problems.
+
+Knapsack Variations:
+1. Subset sum problem
+2. Partition equal subset sum
+3. Count of subsets with sum = X
+4. Partition of a set into 2 subsets such that difference of subset sum is minimum.
+5. Target Sum
