@@ -152,3 +152,22 @@ Rate at which A can fill = 7 L/hr
 Rate at which A+leak can fill the tank = 14 / (7/3) = 6 L/hr
 Rate at which leak empties = 7-6 = 1 L/hr.
 Therefore the leak can drain all the water in 14hrs.
+
+Q) A alone can do a piece of work in 6 days. B alone can do the same work in 12 days. A and B undertook it to do for $9000. What is the amount paid to B?
+Sol) Let the total work = 24 units
+Rate at which A works = 24/6 = 4 units/day
+Rate at which B works = 24/12 = 2 units/day
+A+B can together complete 6 units/day
+So for 6 units/day they are paid $9000.
+For B's 2 units/day work, he will be paid $3000.
+Payment(A):Payment(B) = WorkDone(A):WorkDone(B) = Rate(A)*Time(A):Rate(B)*Time(B)
+
+Q) A alone can do a piece of work in 6 days. B alone can do the same work in 12 days. A and B undertook it to do for $9000. A started the work and B replaces him after 3 days
+What are the shares of A and B?
+Sol) Let the total work = 24 units
+Rate at which A works = 24/6 = 4 units/day
+Rate at which B works = 24/12 = 2 units/day
+In 3 days, A completes 4*3 = 12 units of work.
+Remaining 12 units is completed by B in 6 days.
+Since both A and B complete same work,i.e. 12 units, they both get paid equally.
+Payment(A) = Payment(B) = $4500
