@@ -1,0 +1,9 @@
+1. What is Dynamic Programming | When do we use dynamic programming
+
+DP is optimization over plain recursion.
+
+Conditions that need to be fulfilled to apply DP on problems:
+1) Repeating Subproblems
+- The subproblems should be repeating.
+2) Optimal Substructure
+- The problem when divided into many subproblems; When each subproblem is solved, the main problem should be solved.
