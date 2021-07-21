@@ -162,7 +162,7 @@ So for 6 units/day they are paid $9000.
 For B's 2 units/day work, he will be paid $3000.
 Payment(A):Payment(B) = WorkDone(A):WorkDone(B) = Rate(A)*Time(A):Rate(B)*Time(B)
 
-Q) A alone can do a piece of work in 6 days. B alone can do the same work in 12 days. A and B undertook it to do for $9000. A started the work and B replaces him after 3 days
+Q) A alone can do a piece of work in 6 days.B alone can do the same work in 12 days. A and B undertook it to do for $9000.A started the work and B replaces him after 3days
 What are the shares of A and B?
 Sol) Let the total work = 24 units
 Rate at which A works = 24/6 = 4 units/day
@@ -171,3 +171,48 @@ In 3 days, A completes 4*3 = 12 units of work.
 Remaining 12 units is completed by B in 6 days.
 Since both A and B complete same work,i.e. 12 units, they both get paid equally.
 Payment(A) = Payment(B) = $4500
+
+Q) A alone can do a piece of work in 6 days.B alone can do the same work in 12 days. A and B undertook it to do for $9000.A started the work and B joins him after 3days
+What are the shares of A and B?
+Sol) Let the total work = 24 units
+Rate at which A works = 24/6 = 4 units/day
+Rate at which B works = 24/12 = 2 units/day
+In 3 days, A completes 4*3 = 12 units of work.
+Remaining 12 units is completed by A+B in 2 days.
+A is working for 5 days and B for 2 days.
+Payment(A):Payment(B) = WorkDone(A):WorkDone(B) = Rate(A)*Time(A):Rate(B)*Time(B)
+Payment(A):Payment(B) = 4*5:2*2 = 5:1
+Therefore Payment(A) = $7500; Payment(B) = $1500
+
+Q) A alone can do a piece of work in 8 days.B alone can do the same work in 10 days. A and B undertook it to do for $9000. With the help of C, they completed the
+work in 4 days. How much is to be paid to C?
+Sol) Let the total work = 80 units
+Rate at which A works = 80/8 = 10 units/day
+Rate at which B works = 80/10 = 8 units/day
+80 units of work is completed in 4 days.
+So it accounts to 20 units/day.
+Rate at which C works = 20-(10+8) = 2 units/day
+For a fixed time of 1 day, Payment(A):Payment(B):Payment(C) = Rate(A):Rate(B):Rate(C)
+Payment(A):Payment(B):Payment(C) = 10:8:2 = 5:4:1
+Therefore Payment(C) = $900
+
+Q) A alone can do a piece of work in 8 days.B alone can do the same work in 10 days. A and B undertook it to do for $9000. A and B started the work and C joined them 
+after 2 days. All 3 of them completed the work in 2 days. Find the share of each one.
+Sol) Let the total work = 80 units
+Rate at which A works = 80/8 = 10 units/day
+Rate at which B works = 80/10 = 8 units/day
+In 2 days, 18*2 = 36 units of work is done.
+The remaining 44 units is completed in 2 days.
+2*(10+8+Rate(C)) = 44
+Rate(C)=4 units/day
+For a fixed time of 1 day, Payment(A):Payment(B):Payment(C) = Rate(A)*Time(A):Rate(B)*Time(B):Rate(C)*Time(C)
+Payment(A):Payment(B):Payment(C) = 10*4:8*4:4*2 = 5:4:1
+Therefore Payment(C) = $4500; Payment(C) = $3600; Payment(C) = $1800
+
+Q) 20 men can finish a job in 15 days. In how many days can 30 men do the same job?
+Sol) Work can also be measured in man hours.
+work = men*time
+For a given work, work is constant. So increasing men increases hours and vice-versa.
+m1*t1 = m2*t2
+20*15 = 30*t2
+t2 = 10 days.
