@@ -1,0 +1,57 @@
+8) Equal Sum Partition Problem
+Partition problem is to determine whether a given set can be partitioned into two subsets such that the sum of elements in both subsets is same.
+Examples:
+
+arr[] = {1, 5, 11, 5}
+Output: true 
+The array can be partitioned as {1, 5, 5} and {11}
+
+P: https://www.geeksforgeeks.org/partition-problem-dp-18/
+
+We have already done 01 Knapsack and Subset Sum.
+This problem Equal Sum Partition and Subset Sum the sounding is only very similar.
+
+The given array should be divided into subsets with sums s1 and s2; where s1==s2
+If sum of array = s; s=s1+s2; s1=s2; Therefore, s = 2*s1 = 2*s2
+
+It is very obvious that the sum of array should be an even number.
+
+First lets write the Subset Sum function. 
+
+boolean SubsetSum( int arr[], int sum, int n){
+    #create t[n+1][sum+1]
+    for(int i=0; i<n+1; i++){
+        for(int j=0; j<sum+1; j++){
+            if(i==0)
+                t[i][j] = False;
+            if(j==0)
+                t[i][j] = True;
+        }
+    }# Initialization done
+    if( arr[n-1]<=j ){
+        t[i][j] = t[i-1][j-arr[i-1]] || t[i-1][j];
+    }
+    else{
+        t[i][j] = t[i-1][j];
+    }
+    return t[n][sum];
+}
+
+Our challenge Equal Sum Partition has to return True or False.
+If the sum of array is odd, then and there return False.
+If it is even, then we have to check for Equal Subsets.
+If even, we have to find whether there is a subset with Sum = sum//2.
+Because, in the example, if there is a subset with sum=11, then defnitely there will be another subset with sum 11.
+
+boolean EqualSumPartition(int arr[], int sum, int n){
+    int sum = 0;
+    for(int i=0; i<size; i++){
+        sum+=arr[i];
+    }
+    if(sum%2 == 1){
+        return False;
+    }
+    else{
+        return SubsetSum(arr,sum/2,n)
+    }
+}
