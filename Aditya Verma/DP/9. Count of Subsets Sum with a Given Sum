@@ -1,0 +1,49 @@
+9) Count of subsets sum with a Given sum
+
+Given an array arr[] of length N and an integer X, the task is to find the number of subsets with sum equal to X.
+
+Example:
+Input: arr[] = {1, 2, 3, 3}, X = 6
+Output: 3
+All the possible subsets are {1, 2, 3},
+{1, 2, 3} and {3, 3}
+
+PROBLEM STATEMENT LINK: https://www.geeksforgeeks.org/count-of-subsets-with-sum-equal-to-x/
+
+We completed 01 Knapsack, Subset Sum, Equal Sum Partition.
+
+In Subset Sum problem, we check if the subset is present with the given sum or not. We return True/False.
+But here in the Count of Subsets sum, we have to return the count,i.e. integer.
+take 2D array t[n+1][sum+1].
+
+Initialization:
+In t[0][0], store 1 as If we select no elements from the array,i.e. {}, then sum=0 and count=1.
+In t[2][0], considering first 2 elements in the array, it is possible to get a sum of 0 as we can take {} and count=1.
+So, in the whole first column, we store 1.
+In t[0][1] i.e. when no elements are there in the array, it is impossible to get a sum of 2. So count=0.
+So in the whole first row except the first element t[0][0], we mark 0.
+
+Changes we have to make from Subset Sum problem to Count of Subsets sum:
+1) Change frunction return type from boolean to int.
+2) In initialization, replace True with 1 and False with 0.
+3) JUST CHANGE || TO + in the code.
+
+Subset Sum code:
+if( arr[n-1]<=j ){
+    t[i][j] = t[i-1][j-arr[i-1]] || t[i-1][j];
+}
+else{
+    t[i][j] = t[i-1][j];
+}
+return t[n][sum]
+
+Count of Subsets sum code:
+if( arr[n-1]<=j ){
+    t[i][j] = t[i-1][j-arr[i-1]] + t[i-1][j];
+}
+else{
+    t[i][j] = t[i-1][j];
+}
+return t[n][sum]
+
+YES. JUST CHANGE || TO +.
