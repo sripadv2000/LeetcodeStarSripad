@@ -2,7 +2,8 @@
 
 DP is enhanced recursion.
 Parent of DP is recursion.
-Whenever we are repeating the same steps in recursion, there is a chance for optimization by storing the already computed values and retrieving them if they are called again,
+Whenever we are repeating the same steps in recursion, there is a chance for optimization by storing the already computed values and 
+retrieving them if they are called again,
 instead of preforming recursion again.
 
 DP is nothing but recursion, wherever recursion takes place, DP can be used.
