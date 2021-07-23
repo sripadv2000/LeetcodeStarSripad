@@ -216,3 +216,58 @@ For a given work, work is constant. So increasing men increases hours and vice-v
 m1*t1 = m2*t2
 20*15 = 30*t2
 t2 = 10 days.
+
+Q) 5 men work 15 hours daily to finish a work in 10 days. If 25 men work 2 hours daily, in how many days will the work be completed?
+Sol) Since work can be measured in man hours.
+Work = Men* Time
+m1*h1*d1 = m2*h2*d2
+5M*15H/D*10D = 25M*2H/D*(d2)D
+d2 = 15 days.
+
+Q) 20 men can finish a work in 15 days. 20 men started the work but 5 men left after 6 days. How many more days are required to complete the work?
+Sol) Since 20 men can finish a work in 15 days, the Work = 20*15 ManDays
+Work = 300 ManDays
+In 6 days, 20 men can complete 20*6 = 120 ManDays of work.
+The remaining work is 180 ManDays.
+15 men remain.
+180 ManDays = 15men * D days
+D= 12 days.
+Therefore 12 more days are required.
+
+Q) If 16 boys can finish a work in 10 days of 5 hours a day, then how long will it take for 10 boys to do the same work 9/5 as great, working 9 hours a day?
+Sol) Work = 16* 10D * 5H/D = 800 ManDays
+Work 9/5 as great -> W1 = 9/5 *800 = 9*160 ManDays
+10* 9H/D* (d)D = 9*160 ManDays
+d = 16 days.
+
+Q) 15 engineers can do a project in 9 hours. 15 engineers started a project at 9am, but starting from 2pm, every engineer is leaving every hour.
+At what time the project gets completed?
+Sol) Work = 15*9 = 135 ManHours
+All of them work together for 5 hours completing 5*15 = 75 ManHours.
+60 ManHours of work remaining.
+14+13+12+11+10 = 60 ManHours.
+The work gets completed at 7pm.
+
+Q) 6 engineers can build a server in 10 hours. Another 6 engineers start to build the same server at 11am and 1 enginner per hour is added beginning at 5pm.
+At what time will the server be complete?
+Sol) Work = 60 ManHours
+From 11am to 5pm it is 6hours. So 36 ManHours of work is complete.
+24 ManHours work remaining
+7+8+9 = 24 ManHours.
+So the server is built by 8pm.
+
+Q) One man started a project, one man joins each day starting from the second day, then the project will be completed in 15 days. If a team of 6 men 
+work regularly on the project then the work will be completed in 'n' days. What is 'n'?
+Sol) 1MD+2MD+3MD+.......+15MD = (15*16)/2 = 120MD = 6*n MD
+n = 20
+
+Q) 20 men can complete a work in 20 days. The same work can be completed by 25 women in 32 days.
+If 10 men, 20 women are working together, in how many days will the work be completed?
+Sol) Work = 20*20 = 400 ManDays
+Work = 25*32 = 800 WomanDays
+400 ManDays = 800 WomanDays
+1 Man = 2 Women
+10 men + 20 women = 40 Women
+800 WomanDays = 40 Women * Days
+Days = 20.
+
