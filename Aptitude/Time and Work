@@ -271,3 +271,71 @@ Work = 25*32 = 800 WomanDays
 800 WomanDays = 40 Women * Days
 Days = 20.
 
+Q) 12 men and 18 women can complete a work in 6 days, whereas 12 women can complete the same work in 18 days, How many days will be required
+to do the same work by 6 men?
+Sol) Work = 12*6 ManDays + 18*6 WomenDays
+Work = 12*18 WomenDays
+Equating the equations,
+12*6 ManDays = 6*18 WomenDays
+2 Men = 3 Women
+Work = 6Men * (d)Days
+12*18 WomenDays = 6Men * (d)Days
+12*18 Women = (9 Women) * d
+12*18  = 9 *d
+d = 24 Days
+
+Q) 12 men and 18 women can complete a work in 6 days, whereas 12 women can complete the same work in 18 days.
+If 12 men and 18 women started the same work, 4 men left after 4 days, how many days will the remaining people take to complete the work?
+Sol) Work = 12*6 ManDays + 18*6 WomenDays
+Work = 12*18 WomenDays
+Equating the equations,
+12*6 ManDays = 6*18 WomenDays
+2 Men = 3 Women
+If 12 men and 18 women started the same work and worked for 4 days.
+So work done = 12*4 ManDays + 18*4 WomanDays
+Remaining Work = 12*2 ManDays + 18*2 WomenDays
+Work done by remaining people = 8*d ManDays + 18*d WomenDays
+(12*2 - 8*d) ManDays = 18(d-2) WomenDays
+(12*2 - 8*d) = 12*(d-2)
+24 - 8d = 12d - 24
+48 = 20d
+d = 24/10days
+d= 2.4 days
+
+Q) 12 men and 18 women can complete a work in 6 days, whereas 12 women can complete the same work in 18 days.
+If 8 men work on the first day, 12 women work on the second day, 8 men work on the third day and so on.
+i.e. 8 men and 12 women work on alternate days. In how many days will the work be completed?
+Sol) Work = 12*6 ManDays + 18*6 WomenDays
+Work = 12*18 WomenDays
+Equating the equations,
+12*6 ManDays = 6*18 WomenDays
+2 Men = 3 Women
+8 Men = 12 Women
+12*18 WomenDays = (8 Man + 12 Women + 8 Man + 12 Women + ......)Days
+12*18 Women = 12*n
+n = 18 days.
+
+Q) 12 men and 18 women can complete a work in 6 days, whereas 12 women can complete the same work in 18 days.
+If 10 men and 3 women are working together, in how many days will the work be completed?
+Sol) Work = 12*6 ManDays + 18*6 WomenDays
+Work = 12*18 WomenDays
+Equating the equations,
+12*6 ManDays = 6*18 WomenDays
+2 Men = 3 Women
+12 Man = 18 Woman
+12*18 WomenDays = (10 Man + 3 Women + 10 Man + 3 Women + ......)Days
+12*18 Women = (10 Man + 2Men + 10 Man + 2Men + ......)
+12*18 Women = 12 Man * d
+d = 12 days
+
+Q) 18 men can complete a work in 30 days, whereas 16 women can complete the same work in 36 days.
+15 men started the work and after 9 days, they are replaced by 18 women.
+In how many days will 18 women can complete the remaining work?
+Sol) Work = 18*30 ManDays
+Work = 16*36 WomanDays
+18*30 ManDays = 16*36 WomanDays
+15 Men = 16 Women
+15 men worked for 9 days, work done = 15*9 ManDays
+Remaining Work = (18*30 - 15*9)ManDays = 15*9*3 ManDays = 16*9*3 WomanDays
+16*9*3 WomanDays = 18 Woman * (d)Days
+d = 24 days
