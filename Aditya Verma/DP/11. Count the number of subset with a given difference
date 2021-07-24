@@ -1,0 +1,22 @@
+11) Count the number of subset with a given difference
+
+Given an array and a variable Difference.
+Divide the array into 2 subsets such that the difference of their sum equals Difference. Find the number of such subsets.
+
+Let the sum of subsets be s1 and s2.
+
+(s1 - s2) = Diff
+(s1 + s2) = sum(arr)
+Adding the rwo equations,
+2*(s1) = Diff + sum(arr)
+
+Therefore, s1 = (Diff + sum(arr))/2
+
+In RHS, Given Diff and given arr so can calculate sum, Just can calculate s1.
+
+With s1, we just have to FIND THE COUNT OF SUBSETSUM WITH S1.
+
+return CountofSubsetSum(arr,sum)
+
+If (Diff + sum(arr)) is odd, then return 0;
+
