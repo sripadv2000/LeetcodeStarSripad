@@ -1,0 +1,51 @@
+1) Face To Face Interview Interesting Algorithms
+
+We discuss here some algorithm problems on array and string covering the following:
+-Sliding Window
+-Missing and Duplicate number from 1 to N
+-Two Pointers and Three Pointers
+-Query Processing Problems
+
+2) Find Missing and Duplicate Number in an Array | Swap Sort Need
+
+Given an unsorted array of size n. Array elements are in the range from 1 to n. One number from set {1, 2, …n} is missing and one number occurs twice in the array.
+Find these two numbers in order of one space.
+
+Input:[3 1 2 5 3] 
+
+Output:[3, 4] 
+
+Duplicate = 3, Missing = 4
+Found the duplicate and missing number using math. (a-b), (a^2 - b^2). Find a+b and Find a and b.
+P: https://www.interviewbit.com/problems/repeat-and-missing-number-array/
+class Solution:
+    # @param A : tuple of integers
+    # @return a list of integers
+    def repeatedNumber(self, A):
+        n = len(A)
+        x = sum(A) - sum(set(A))
+        k = sum(A) - int(n*(n+1)/2)
+        return [x,x-k]
+        
+ 3) Swap Sort Explanation | Find a duplicate and a missing number
+ 
+ This method demands change in position of elements of the array. If the array is immutable or it is declared as constant, then this method cant be used.
+ For that separate array should be created O(n) space.
+ 
+ In the case of array that contains 1 to n elements, after sorting, in the 0th position there is 1.
+ In the 1st index, there is 2. .... In the (n-1)th index, there is n. In ideal case, in i'th index, there is (i+1).
+ 
+ So in this problem, there is a duplicate element and there is a missing element.
+ 
+array   | 2   3   1   5   1               array   | 1   2   3   1   5
+-----------------------------   ====>>>   ----------------------------- 
+index   | 0   1   2   3   4               index   | 0   1   2   3   4
+We have to convert the array into this. Every element goes to its right position. Except one element.
+Element at the 3rd index is the only mismatch.
+So 1 is the repeating element and the element that actually should be present(4) is the missing element.
+
+One liner algorithm:
+For every i, check "Jo iski sahi jaga pe baita he kya wo wahi hai", agar hai tho i++, else swap.
+arr[i] != arr[arr[i]-1]
+
+This swap sort algorithm runs in O(n) time.
