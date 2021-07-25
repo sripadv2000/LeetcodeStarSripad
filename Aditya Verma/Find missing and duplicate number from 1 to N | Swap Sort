@@ -49,3 +49,12 @@ For every i, check "Jo iski sahi jaga pe baita he kya wo wahi hai", agar hai tho
 arr[i] != arr[arr[i]-1]
 
 This swap sort algorithm runs in O(n) time.
+
+4) Find all duplicate and missing numbers from 1 to N
+
+array   | 2   3   1   8   2   3   5   1                array   | 1   2   3  (2)  5  (3)  7   8
+----------------------------------------     ====>>>   ----------------------------------------
+index   | 0   1   2   3   4   5   6   7                index   | 0   1   2   3   4   5   6   7
+
+arr[i] != arr[arr[i]-1]
+
