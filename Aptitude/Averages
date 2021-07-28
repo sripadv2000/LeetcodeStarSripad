@@ -1,0 +1,8 @@
+Average = (a1+a2+a3+a4....)/n
+
+If we increment each element by k, Then new Average = Average + k
+
+If we multiply each element by k, Then new Average = Average * k
+
+If the new element added is a_(n+1), then new Average = Average + (a_(n+1) - Average)/(n+1)
+
