@@ -6,3 +6,38 @@ If we multiply each element by k, Then new Average = Average * k
 
 If the new element added is a_(n+1), then new Average = Average + (a_(n+1) - Average)/(n+1)
 
+Q) The average weight of 8 persons increased by 3kgs, when a person with 70kgs is replaced with a new person. What is the weight of new person?
+Sol) New_avg = Old_avg + 3
+Old_avg = (7_sum + 70)/8
+New_avg = (7_sum +N)/8
+(7_sum + 70)/8 = (7_sum +N)/8 - 3
+(7_sum + 70) = (7_sum +N) - 24
+N = 94
+
+Q) The average weight of 12 persons increased by 1kgs, when 2 persons with 35kgs and 43kgs are replaced with 2 new persons. What is the average weight of new persons?
+Sol) Old_avg = (10_sum + 35+43)/12
+New_avg = (10_sum+N+M)/12
+(10_sum + 35+43)/12 = (10_sum+N+M)/12 - 1
+10_sum + 35+43 = 10_sum+N+M - 12
+(N+M)/2 = 90/2 = 45
+
+Q) Average of 10 numbers is calculated as 30. It is discovered that one number was wrongly entered as 36 instead of 63. What is the actual average?
+Sol) sum = 300
+Actual_sum = 300-36+63 = 327
+Actual_avg = 327/10 = 32.7
+
+Q) If the average of 5 consecutive even numbers is 44. Find the highest number.
+Sol) Let the numbers be (n-4),(n-2),n,(n+2),(n+4).
+5n/5 = 44
+n=44
+Highest number = 48
+
+Q) If the average of 5 consecutive odd numbers is 59. What will be the sum of next set of 5 odd numbers?
+Sol) Let the numbers be (n-3),(n-1),n,(n+1),(n+3).
+5n/5 = 59
+n=59
+Next 5 numbers are: 61,63,....69.
+Avg=65
+Sum = 65*5 = 325
+
+
