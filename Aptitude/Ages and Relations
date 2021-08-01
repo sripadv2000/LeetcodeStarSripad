@@ -1,0 +1,21 @@
+Ages and Relations
+Q) When Gautam was born, his father was 32 years older than his brother and his mother was 25 years older than his sister.
+If his brother is 6 years elder, and his mother is 3 years younger than his father, how old was his sister when he was born?
+Sol) f = b+32
+m = 25+s
+b = 6
+f = m+3
+f = 38
+m = 35
+s = 10
+
+Q) Anil is 3 times as old as Bhanu. Chetan was twice as old as Anil four years ago. In four years time, Anil will be 34. What is the average age of Chetan and Bhanu?
+Sol) a=3*b
+(c-4) = 2*(a-4)
+a = 30
+b = 10
+c = 56
+Avg = 33
+
+
+
