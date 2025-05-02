@@ -1,0 +1,60 @@
+3) 01 Knapsack Recursive
+
+In the last file, refer the input format of 01 Knapsack.
+Draw the Choice Diagram so that it is very easy to write the Recursive Solution.
+
+Choice Diagram:
+          Item 1
+          W1
+        /   \
+     W1<=W   W1>W
+     /   \     \
+   Yes   No     No
+   
+We have to return the maximum profit, so the return type is int.
+
+int knapsack(int wt[], int val[], int W, int n){
+  Base Condition
+  Code the Choice Diagram
+}
+
+To find the base condition, some of them do this of running Recursion and then checking the last recursive call to get the base condition.
+fun(n)->fun(n-1)->fun(n-2)->fun(n-3)->.......fun(n-x)
+Wrong Way
+
+For the Base Condition, think of the smallest valid input.
+
+n being the size of the array, and W the capacity of the knapsack, the n can be zero(No items in the store) and W can be zero(Knapsack capacity 0). 
+This is the smallest valid input.
+
+if(n==0 || W==0){
+    return 0;
+}
+
+Writing code for the Choice Diagram:
+Whenever writing a Recursive code, keep in mind that the function should call itself with less input.
+    Fun(INPUT)
+        |
+Fun(smaller INPUT)
+
+For this 01 Knapsack, lets iterate the arrays simultaneously from back and make a choice whether to include element or not and remove the item.
+If we include any element, then we should include its price,i.e. val[n-1].
+if(wt[n-1]<=W), take maximum of 
+  if include, val[n-1]+knapsack(wt,val,W-val[n-1],n-1)
+  if not include, knapsack(wt,val,W,n-1)
+if(wt[n-1]>W)
+  knapsack(wt,val,W,n-1)
+
+Recursive Code:
+int knapsack(int wt[], int val[], int W, int n)
+{
+    if(n==0 || W==0){
+        return 0;
+    }
+    if(wt[n-1]<=W){
+        return max(val[n-1]+knapsack(wt,val,W-val[n-1],n-1),knapsack(wt,val,W,n-1));
+    }
+    else if(wt[n-1]>W){
+        return knapsack(wt,val,W,n-1);
+    }
+}

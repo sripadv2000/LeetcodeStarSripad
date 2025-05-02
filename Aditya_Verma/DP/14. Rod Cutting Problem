@@ -1,0 +1,49 @@
+14)Rod Cutting Problem
+
+Given a rod of length n inches and an array of prices that contains prices of all pieces of size smaller than n. 
+Determine the  maximum value obtainable by cutting up the rod and selling the pieces. 
+
+Example: 
+If length of the rod is 8 and the values of different pieces are given as following, 
+then the maximum obtainable value is 22 (by cutting in two pieces of lengths 2 and 6)
+
+
+length   | 1   2   3   4   5   6   7   8  
+--------------------------------------------
+price    | 1   5   8   9  10  17  17  20
+
+PROBLEM STATEMENT LINK: https://www.geeksforgeeks.org/cutting-a-rod-dp-13/
+
+Given length[] and price[] arrays have to find the maximum profit.
+
+Sometimes the length array will not be given but it is understood that for given N length, length[] array can be constructed starting from 1.
+
+Similarities between 01 Knapsack and this problem:
+1) W -> N.
+2) wt[] -> length[]
+3) val[] -> price[]
+So we can understand that this is a variation of Knapsack.
+
+In 01 Knapsack, once an item is taken it cannot be taken again. But here, repetitions can occur. So this is Unbounded Knapsack.
+
+Unbounded Knapsack Code: array t[n+1][W+1]
+if( wt[i-1] <= j ){
+    t[i][j] = max( val[i-1] + t[i][ j - wt[i-1]] , t[i-1][j]);
+}
+else{
+    t[i][j] = t[i-1][j];
+}
+Rod-Cutting Code: array t[n+1][length+1]
+if( length[i-1] <= j ){
+    t[i][j] = max( price[i-1] + t[i][ j - length[i-1]] , t[i-1][j]);
+}
+else{
+    t[i][j] = t[i-1][j];
+}
+
+YT Comments:
+In knapsack the total weight of selected items need not be equal to Knapsack capacity. 
+But in this case the total length of selected segments must be equal to Length of the rod not less.
+
+No its not wrong bcus lets say the weight of rod is 8, and you have to cases 7+1 and 2+5 which is and 2+5 is giving you more value, 
+but you can always add 1 to 2+5 and the max will automatically increase and we are always getting max so there wont be a problem.

@@ -1,0 +1,71 @@
+5) 01 Knapsack Top Down DP
+
+Now we arrive t the Real DP the Top Down Method.
+We want to remove the very idea of Recursive call. We derive the answer just by using the DP array.
+
+In the Memoization, when there are many function calls, then there is a chance that the stack that holds the function calls gets full due to overflow and resulting in Error.
+So Top Down DP is a better approach.
+
+We take array of size t[n+1][W+1] as if we take array of size t[n][W], then the last value we can store is t[n-1][W-1]. So we take one size bigger.
+
+Steps to write Top Down DP:
+1) Initialize the array.
+2) Since we want to omit the recursive call, convert the recursive code to iterative code.
+
+For a value of n and capacity W, we take an array of n+1 * W+1 size.
+Any random element t[i][j] holds the maximum profit when there are i items and j capacity of knapsack. 
+
+Recursive Code:
+int knapsack(int wt[], int val[], int W, int n)
+{
+    if(n==0 || W==0){ //BASE CONDITION
+        return 0;
+    }
+    if(wt[n-1]<=W){
+        return max(val[n-1]+knapsack(wt,val,W-val[n-1],n-1),knapsack(wt,val,W,n-1));
+    }
+    else if(wt[n-1]>W){
+        return knapsack(wt,val,W,n-1);
+    }
+}
+
+
+The base condition in Recursive Solution becomes Initialization in Top Down Approach.
+if the store has no elements, n=0, the first row indicates the n=0. So fill all the values of first row with 0.
+if the capacity of knapsack is 0, W=0, the first column indicates the W=0. So fill all the values of first column with 0.
+
+Directly converting the Recursive code into the Top Down code,
+    if(wt[n-1]<=W){
+        t[n][W] = max(val[n-1]+ t[n-1][W-wt[n-1]], t[n-1][W]);
+    }
+    else if(wt[n-1]>W){
+        t[n][W] = t[n-1][W];
+    }
+    
+Just convert the n,W int i,j and put them inside loop.
+
+Top Down DP code:
+int t[n+1][W+1];
+memset(t,-1,sizeof(t))
+
+int knapsack(int wt[], int val[], int W, int n)
+{
+    for(int i=0; i<n+1; i++){
+        for(int j=0; j<W+1; j++){
+            if(i==0 || j==0){
+                t[i][j]=0;
+            }
+        }
+    }
+    for(int i=1; i<n+1; i++){
+        for(int j=1; j<W+1; j++){
+            if(wt[i-1]<=j){
+                t[i][j] = max(val[i-1]+ t[i-1][j-wt[i-1]], t[i-1][j]);
+            }
+            else if(wt[i-1]>j){
+                t[i][j] = t[i-1][j];
+            }
+        }
+    }
+    return t[n][W];
+}

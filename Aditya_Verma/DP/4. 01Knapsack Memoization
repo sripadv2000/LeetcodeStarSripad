@@ -1,0 +1,43 @@
+4) 01Knapsack Memoization
+
+After writing the Recursive code, it is very easy to memoize the code.
+Just need to add 2 mores lines to the recursive code.
+
+Take a 2D array t[][] to store the computed values.
+We have to create the matrix taking the rows and colums using the variables which change.
+
+In the Knapsack recuisive code, the W and n are the variables that are changing.
+So take the matrix t[n+1][W+1].
+Fill all the elements of the matrix with -1.
+Either use 2 for loops or use memset.
+memset(t,-1,sizeof(t))
+Before performing a recursive call, check in the matrix if the element is filled with a value, if yes, return the value directly.
+If the element still holds -1, then perform recursion.
+
+In the contraints, if it is given as n<=100 and W<=1000,
+Then directly initialize the matrix as int t[102][1002].
+Look at the constraints and initialize the static matrix.
+memset(t,-1,sizeof(t))
+
+DP using Memoization Code:
+int t[102][1002];
+memset(t,-1,sizeof(t))
+
+int knapsack(int wt[], int val[], int W, int n)
+{
+    if(n==0 || W==0){
+        return 0;
+    }
+    if(t[n][W] != -1){
+        return t[n][W];
+    }
+    if(wt[n-1]<=W){
+        return t[n][W] = max(val[n-1]+knapsack(wt,val,W-val[n-1],n-1),knapsack(wt,val,W,n-1));
+    }
+    else if(wt[n-1]>W){
+        return t[n][W] = knapsack(wt,val,W,n-1);
+    }
+}
+
+Both the Memoized code and Top Down code take O(n^2) TC.
+The only drawback of Memoized code can be the "function call stack can overflow" as the function is called again and again.

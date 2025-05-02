@@ -1,0 +1,44 @@
+10. Sum of subset differences
+Given a set of integers, the task is to divide it into two sets S1 and S2 such that the absolute difference between their sums is minimum.
+If there is a set S with n elements, then if we assume Subset1 has m elements, 
+Subset2 must have n-m elements and the value of abs(sum(Subset1) – sum(Subset2)) should be minimum.
+
+Example:
+Input:  arr[] = {1, 6, 11, 5} 
+Output: 1
+Explanation:
+Subset1 = {1, 5, 6}, sum of Subset1 = 12 
+Subset2 = {11}, sum of Subset2 = 11 
+
+P: https://www.geeksforgeeks.org/partition-a-set-into-two-subsets-such-that-the-difference-of-subset-sums-is-minimum/
+
+We completed 01 Knapsack, Subset Sum, Equal Sum Partition, Count of Subset Sum.
+
+In the Equal Sum Partition, we are looking for s1-s2 == 0, but here we have to find s1-s2=minimum
+We dont know what exactly are s1 and s2. Bot we know the range.
+min(s1,s2) can be 0.
+max(s1,s2) can be sum(arr).
+0 -> sum(arr) is the Range in which s1 and s2 lie.
+wkt s1+s2 = sum(arr)
+
+In the array at any point s1==s2 then we have to return 0.
+If not equal, consider s1 to be smaller than s2.
+So s1 will range from 0 to sum//2. If we get s1 to be True, s2 is always sum-s1. 
+We have to minimize s2-s1.
+So we have to minimize (sum - 2*s1).
+
+Consider a number line from 0 to sum(arr).
+The higher the value of s1 in the range 0 to sum/2,
+the lesser the value of s2 will be in the range sum/2 to sum.
+
+We use Subset Sum problem to solve this.
+In the Subset Sum problem we fill the array t[n+1][sum+1].
+So in the last row, we fill the elements for which i==n and j ranges from 0 to sum(arr).
+
+Take the last row of t[n+1][sum+1] after Subset Sum and iterate till half of the last row and put those sum(j values) in a vector whose value is True.
+
+int mn = INT_MAX;
+for(int i=0; i<v.size(); i++){
+    mn = min(mn, sum(arr)-2*v[i]);
+}
+return mn;

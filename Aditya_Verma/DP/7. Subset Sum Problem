@@ -1,0 +1,56 @@
+7) Subset Sum Problem
+Subset Sum Problem(Dynamic Programming)
+Given a set of non-negative integers, and a value sum, determine if there is a subset of the given set with sum equal to given sum.
+Example:
+
+Input:  set[] = {3, 34, 4, 12, 5, 2}, sum = 9
+Output:  True  //There is a subset (4, 5) with sum 9.
+
+PROBLEM STATEMENT LINK: https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
+
+Given an items array of size n and sum W have to find if there is a sunarray with that sum W.
+We have a choice whether to select an element or not.
+Lot of similarities with the standard 01 Knapsack problem.
+
+Create a 2D array t[n+1][W+1]. The O/P to be returned is True/False.
+So as we store the O/Ps in the table, store the answers.
+
+In t[0][0], store True as If we select no elements from the array,i.e. {}, then sum=0.
+In t[2][0], considering first 2 elements in the array, it is possible to get a sum of 0 as we can take {}.
+So, in the whole first column, we store True.
+In t[0][1] i.e. when no elements are there in the array, it is impossible to get a sum of 2. So False.
+So in the whole first row except the first element t[0][0], we mark False.
+
+arr[]:0; sum:# -> False
+arr[]:#; sum:0 -> True
+If we initialize this way, then our condition arr[]:0; sum:0 -> True also holds correct.
+Initialization:
+for(int i=0; i<n+1; i++){
+    for(int j=0; j<sum+1; j++){
+        if(i==0)
+            t[i][j] = False;
+        if(j==0)
+            t[i][j] = True;
+    }
+}
+Changes from 01 Knapsack and Subset Sum
+1) wt[] ->arr[]
+2) Stores values -> Stores True/False
+3) Initialization different
+4) max -> ||
+
+01 Knapsack:
+if( wt[i-1]<=j ){
+    t[i][j] = max(val[i-1] + t[i-1][j-wt[i-1]], t[i-1][j]);
+}
+else{
+    t[i][j] = t[i-1][j]
+}
+Subset Sum:
+if( arr[n-1]<=j ){
+    t[i][j] = t[i-1][j-arr[i-1]] || t[i-1][j];
+}
+else{
+    t[i][j] = t[i-1][j];
+}
+return t[n][sum]
