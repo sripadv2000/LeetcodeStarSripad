@@ -1,3 +1,106 @@
+1 Heap Introduction and Identification
+
+A Heap is a special Tree-based data structure in which the tree is a complete binary tree. 
+
+Generally, Heaps can be of two types:
+
+Max-Heap: In a Max-Heap the key present at the root node must be greatest among the keys present at all of it’s children. 
+The same property must be recursively true for all sub-trees in that Binary Tree.
+
+Min-Heap: In a Min-Heap the key present at the root node must be minimum among the keys present at all of it’s children. 
+The same property must be recursively true for all sub-trees in that Binary Tree.
+
+heapq.heapify()
+heapq.heappush(min_heap, element)
+heapq.heappop(min_heap)
+
+In python, the default is min_heap, push negative values to simulate max-heap.
+
+2 Kth Smallest Element
+https://leetcode.com/problems/kth-largest-element-in-an-array/description/
+
+Given an array and a number k where k is smaller than size of array, we need to find the k’th smallest element in the given array. It is given that all array elements are distinct.
+
+Example:
+Input: arr[] = {7, 10, 4, 3, 20, 15}
+k = 3
+Output: 7
+
+
+3 Return K largest Elements in array
+https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/
+
+Write an efficient program for printing k largest elements in an array. Elements in array can be in any order.
+
+For example, if given array is [1, 23, 12, 9, 30, 2, 50] and you are asked for the largest 3 elements i.e., k = 3 then your program should print 50, 30 and 23.
+
+
+
 4 Sort a K Sorted Array | Sort Nearly Sorted Array
 https://www.geeksforgeeks.org/nearly-sorted-algorithm/
 
+
+5 K Closest Numbers
+https://leetcode.com/problems/find-k-closest-elements/description/
+
+Given an unsorted array and two numbers x and k, find k closest values to x.
+Input : arr[] = {10, 2, 14, 4, 7, 6}, x = 5, k = 3 . 
+
+
+6 Top K Frequent Numbers
+https://leetcode.com/problems/top-k-frequent-elements/description/
+https://www.geeksforgeeks.org/find-k-numbers-occurrences-given-array/
+
+Given an array of n numbers. 
+Your task is to read numbers from the array and keep at-most K numbers at the top (According to their decreasing frequency) every time a new number is read. We basically need to print top k numbers sorted by frequency when input stream has included k distinct elements, else need to print all distinct elements sorted by frequency.
+
+nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+
+
+7 Frequency Sort
+https://leetcode.com/problems/sort-array-by-increasing-frequency/description/
+https://www.geeksforgeeks.org/sort-elements-by-frequency/
+https://leetcode.com/problems/sort-characters-by-frequency/description/
+
+Given an array of integers nums, sort the array in increasing order based on the frequency of the values. If multiple values have the same frequency, sort them in decreasing order.
+Return the sorted array.
+
+
+8 K Closest Points To Origin
+https://leetcode.com/problems/k-closest-points-to-origin/description/
+https://www.geeksforgeeks.org/find-k-closest-points-to-the-origin/
+
+Given a list of points on the 2-D plane and an integer K. The task is to find K closest points to the origin and print them.
+
+Note: The distance between two points on a plane is the Euclidean distance.
+
+Example:
+Input : point = [[3, 3], [5, -1], [-2, 4]], K = 2 . 
+
+
+9 Connect Ropes to Minimise the Cost
+https://www.geeksforgeeks.org/connect-n-ropes-minimum-cost/
+
+There are given n ropes of different lengths, we need to connect these ropes into one rope. The cost to connect two ropes is equal to sum of their lengths. We need to connect the ropes with minimum cost.
+
+For example if we are given 4 ropes of lengths 4, 3, 2 and 6. We can connect the ropes in following ways.
+1) First connect ropes of lengths 2 and 3. Now we have three ropes of lengths 4, 6 and 5.
+2) Now connect ropes of lengths 4 and 5. Now we have two ropes of lengths 6 and 9.
+3) Finally connect the two ropes and all ropes have connected.
+
+Total cost for connecting all ropes is 5 + 9 + 15 = 29. This is the optimized cost for connecting ropes. Other ways of connecting ropes would always have same or more cost. For example, if we connect 4 and 6 first (we get three strings of 3, 2 and 10), then connect 10 and 3 (we get two strings of 13 and 2). Finally we connect 13 and 2. Total cost in this way is 10 + 13 + 15 = 38.
+
+
+10 Sum of Elements between k1 smallest and k2 smallest numbers
+
+https://www.geeksforgeeks.org/sum-elements-k1th-k2th-smallest-elements/
+
+Given an array of integers and two numbers k1 and k2. Find the sum of all elements between given two k1’th and k2’th smallest elements of the array. It may  be assumed that all elements of array are distinct.
+
+Example :
+Input : arr[] = {20, 8, 22, 4, 12, 10, 14},  k1 = 3,  k2 = 6  
+Output : 26          
+         3rd smallest element is 10. 6th smallest element 
+         is 20. Sum of all element between k1 & k2 is
+         12 + 14 = 26
